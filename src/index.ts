@@ -1,5 +1,5 @@
 function hello(name: string):string {
-  return `hello, ${name}!`;
+  return `hello, ${name} !`;
 }
 
 console.log(hello("World"));
