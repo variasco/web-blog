@@ -1,10 +1,11 @@
-.navbar {
+.root {
   width: 100%;
   height: var(--navbar-height);
   background: var(--inverted-bg-color);
   padding: 20px;
   display: flex;
   align-items: center;
+  box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
 }
 
 .links {

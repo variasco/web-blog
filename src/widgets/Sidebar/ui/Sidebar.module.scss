@@ -1,0 +1,24 @@
+.root {
+  height: calc(100vh - var(--navbar-height));
+  width: var(--sidebar-width);
+
+  background: var(--inverted-bg-color);
+  position: relative;
+  transition: width 0.3s;
+  box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+}
+
+.collapsed {
+  width: 80px;
+  width: var(--sidebar-width-collapsed);
+}
+
+.switchers {
+  position: absolute;
+  bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  width: 100%;
+  justify-items: center;
+}
