@@ -1,6 +1,5 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import path from "path";
-import webpack, { LoaderContext } from "webpack";
+import webpack from "webpack";
 import { BuildOptions } from "./types/config";
 
 // function getLocalIndent(context: webpack.LoaderContext<{}>, localName: string, isDev: boolean): string {

@@ -1,6 +1,6 @@
 import { LanguageSwitcher } from "features/LanguageSwither";
 import { ThemeSwitcher } from "features/ThemeSwitcher";
-import { DetailedReactHTMLElement, DetailsHTMLAttributes, FC, HTMLAttributes, useState } from "react";
+import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames as cn } from "shared/lib/classNames/classNames";
 import styles from "./Sidebar.module.scss";

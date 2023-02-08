@@ -1,4 +1,3 @@
-import { ThemeSwitcher } from "features/ThemeSwitcher";
 import { useTranslation } from "react-i18next";
 import { classNames as cn } from "shared/lib/classNames/classNames";
 import { AppLink } from "shared/ui";
