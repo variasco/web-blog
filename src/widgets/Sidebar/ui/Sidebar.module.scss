@@ -1,11 +1,10 @@
 .root {
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
-
   background: var(--inverted-bg-color);
   position: relative;
   transition: width 0.3s;
-  box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+  box-shadow: 0 5px 5px -5px rgb(34 60 80 / 60%) inset;
 }
 
 .collapsed {
