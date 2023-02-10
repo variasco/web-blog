@@ -7,5 +7,6 @@
   "main-link": "Main",
   "toggle": "toggle",
   "language": "English",
-  "loading": "Загрузка..."
+  "loading": "Loading...",
+  "page-not-found": "Page not found"
 }

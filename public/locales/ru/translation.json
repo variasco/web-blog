@@ -7,5 +7,6 @@
   "main-link": "Главная",
   "toggle": "переключить",
   "language": "Русский",
-  "loading": "Loading..."
+  "loading": "Загрузка...",
+  "page-not-found": "Страница не найдена"
 }
