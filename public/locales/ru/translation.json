@@ -8,5 +8,8 @@
   "toggle": "переключить",
   "language": "Русский",
   "loading": "Загрузка...",
-  "page-not-found": "Страница не найдена"
+  "page-not-found": "Страница не найдена",
+  "something-went-wrong": "Что-то пошло не так",
+  "reload-page": "Перезагрузить страницу",
+  "throw-error": "Выбросить ошибку"
 }

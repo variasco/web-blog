@@ -8,5 +8,8 @@
   "toggle": "toggle",
   "language": "English",
   "loading": "Loading...",
-  "page-not-found": "Page not found"
+  "page-not-found": "Page not found",
+  "something-went-wrong": "Something went wrong",
+  "reload-page": "Reload page",
+  "throw-error": "Throw error"
 }
