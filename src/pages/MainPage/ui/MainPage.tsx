@@ -1,5 +1,6 @@
 import { BugButton } from "app/providers/ErrorBoundary";
 import { useTranslation } from "react-i18next";
+import { Button, ThemeButton } from "shared/ui";
 
 const AboutPage = () => {
   const { t } = useTranslation();
