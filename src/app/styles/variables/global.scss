@@ -1,4 +1,5 @@
 :root {
+  // Fonts
   --font-family-main: consolas, "Thimes New Roman", serif;
   --font-size-m: 16px;
   --font-line-m: 24px;
@@ -14,4 +15,10 @@
   --navbar-height: 50px;
   --sidebar-width: 300px;
   --sidebar-width-collapsed: 80px;
+
+  // Z-indexes
+  --modal-z-index: 10;
+
+  // Colors
+  --overlay-color: rgba(0 0 0 / 60%);
 }

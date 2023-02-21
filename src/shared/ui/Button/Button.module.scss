@@ -4,11 +4,16 @@
   color: var(--primary-color);
 }
 
-.clear {
+.clear,
+.clearInverted {
   padding: 0;
   background: none;
   border: none;
   outline: none;
+  color: var(--primary-color);
+}
+
+.clearInverted {
   color: var(--inverted-primary-color);
 }
 
@@ -17,7 +22,8 @@
   border: 1px solid var(--primary-color);
 }
 
-.background {
+.background,
+.backgroundInverted {
   background: var(--bg-color);
   color: var(--primary-color);
   border: none;
@@ -26,38 +32,37 @@
 .backgroundInverted {
   background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
-  border: none;
+}
+
+.size-m,
+.square.size-m {
+  font: var(--font-m);
+}
+
+.size-l,
+.square.size-l {
+  font: var(--font-l);
+}
+
+.size-xl,
+.square.size-xl {
+  font: var(--font-xl);
 }
 
 .square.size-m {
   padding: 0;
   width: var(--font-line-m);
   height: var(--font-line-m);
-  font: var(--font-m);
 }
 
 .square.size-l {
   padding: 0;
   width: var(--font-line-l);
   height: var(--font-line-l);
-  font: var(--font-l);
 }
 
 .square.size-xl {
   padding: 0;
   width: var(--font-line-xl);
   height: var(--font-line-xl);
-  font: var(--font-xl);
-}
-
-.size-m {
-  font: var(--font-m);
-}
-
-.size-l {
-  font: var(--font-l);
-}
-
-.size-xl {
-  font: var(--font-xl);
 }
