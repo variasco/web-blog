@@ -13,5 +13,7 @@
   "something-went-wrong": "Что-то пошло не так",
   "reload-page": "Перезагрузить страницу",
   "throw-error": "Выбросить ошибку",
-  "sigh-in": "Войти"
+  "sigh-in": "Войти",
+  "increment": "Увеличить",
+  "decrement": "Уменьшить"
 }
