@@ -24,7 +24,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         </Button>
       </div>
       <Modal open={authModalOpen} onClose={authModalToggle}>
-        {/*  */}
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, saepe?
       </Modal>
     </div>
   );
