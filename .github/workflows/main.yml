@@ -1,39 +1,78 @@
 name: linting, testing, building
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 jobs:
-  pipeline:
-    runs-on: windows-2019
+  linting:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
-        run: npm install
-      - name: build production project
-        run: npm run build:prod
-        if: always()
-      - name: linting typescript
-        run: npm run lint:ts
-        if: always()
-      - name: linting css
-        run: npm run lint:scss
-        if: always()
-      - name: unit testing
-        run: npm run test:unit
-        if: always()
-      # - name: build storybook
-      #   run: npm run storybook:build
-      #   if: always()
-      # - name: screenshot testing
-      #   run: npm run test:ui:ci
-      #   if: always()
+    - name: Checkout commit
+      uses: actions/checkout@v2
+    - name: Starting Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: install modules
+      run: npm i
+      # run: npm ci
+    - name: Cache deps
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: node-modules-${{ hashFiles('**/package-lock.json') }}
+    - name: Linting typescript
+      run: npm run lint:ts
+    - name: Linting css
+      run: npm run lint:scss
+
+  unit-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+    - name: Cache deps
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: node-modules-${{ hashFiles('**/package-lock.json') }}
+    - uses: actions/checkout@v2
+    - name: Starting Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: install modules
+      run: npm i
+    - name: unit testing
+      run: npm run test:unit
+
+# storybook:
+#   runs-on: ubuntu-latest
+#   strategy:
+#     matrix:
+#       node-version: [16.x]
+#   needs: [linting, unit-test]
+#   steps:
+#   - name: Cache deps
+#     uses: actions/cache@v3
+#     with:
+#       path: ~/.npm
+#       key: node-modules-${{ hashFiles('**/package-lock.json') }}
+#   - uses: actions/checkout@v2
+#   - name: Starting Node.js ${{ matrix.node-version }}
+#     uses: actions/setup-node@v1
+#     with:
+#       node-version: ${{ matrix.node-version }}
+#   - name: install modules
+#     run: npm i
+#   - name: build production project
+#     run: npm run build:prod
+#   - name: build storybook
+#     run: npm run storybook:build
+#   - name: screenshot testing
+#     run: npm run test:ui:ci
