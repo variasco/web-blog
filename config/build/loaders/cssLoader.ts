@@ -22,9 +22,18 @@ export default function cssLoader(isDev: boolean) {
   };
 }
 
-function myGetLocalIdent(context: webpack.LoaderContext<object>, _: string, localName: string): string {
+function myGetLocalIdent(
+  context: webpack.LoaderContext<object>,
+  _: string,
+  localName: string
+): string {
   const base = path.parse(context.resourcePath)?.name?.replace(/\.module$/, "");
   const localIdentHash = getLocalIdentHash(localName);
+  const whiteList = ["blink"];
+
+  if (whiteList.includes(localName)) {
+    return localName;
+  }
 
   if (localName.startsWith("root")) {
     return `${base}--${localIdentHash}`;

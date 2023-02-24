@@ -15,5 +15,8 @@
   "throw-error": "Throw error",
   "sigh-in": "Sign In",
   "increment": "Increment",
-  "decrement": "Decrement"
+  "decrement": "Decrement",
+  "sign-in": "Sign in",
+  "enter-username": "Enter username",
+  "enter-password": "Enter password"
 }

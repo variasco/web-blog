@@ -15,5 +15,8 @@
   "throw-error": "Выбросить ошибку",
   "sigh-in": "Войти",
   "increment": "Увеличить",
-  "decrement": "Уменьшить"
+  "decrement": "Уменьшить",
+  "sign-in": "Войти",
+  "enter-username": "Введите username",
+  "enter-password": "Введите пароль"
 }
