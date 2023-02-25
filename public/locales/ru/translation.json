@@ -13,10 +13,11 @@
   "something-went-wrong": "Что-то пошло не так",
   "reload-page": "Перезагрузить страницу",
   "throw-error": "Выбросить ошибку",
-  "sigh-in": "Войти",
   "increment": "Увеличить",
   "decrement": "Уменьшить",
   "sign-in": "Войти",
   "enter-username": "Введите username",
-  "enter-password": "Введите пароль"
+  "enter-password": "Введите пароль",
+  "authentication": "Форма авторизации",
+  "sign-out": "Выйти"
 }

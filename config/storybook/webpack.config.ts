@@ -1,11 +1,16 @@
 import path from "path";
-import webpack from "webpack";
+import webpack, { DefinePlugin } from "webpack";
 import { BuildPaths } from "../../config/build/types/config";
 import cssLoader from "../build/loaders/cssLoader";
 import svgLoader from "../build/loaders/svgLoader";
 
 export default ({ config }: { config: webpack.Configuration }) => {
-  const paths: BuildPaths = { build: "", entry: "", html: "", src: path.resolve(__dirname, "..", "..", "src") };
+  const paths: BuildPaths = {
+    build: "",
+    entry: "",
+    html: "",
+    src: path.resolve(__dirname, "..", "..", "src"),
+  };
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push(".ts", ".tsx");
 
@@ -21,6 +26,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.module?.rules?.push(cssLoader(true));
   config.module?.rules?.push(svgLoader());
+
+  config.plugins?.push(new DefinePlugin({ __IS_DEV__: true }));
 
   return config;
 };

@@ -21,13 +21,13 @@ Primary.args = {
 export const PrimarySizeL = Template.bind({});
 PrimarySizeL.args = {
   children: "Text",
-  size: ButtonSize.L
+  size: ButtonSize.L,
 };
 
 export const PrimarySizeXL = Template.bind({});
 PrimarySizeXL.args = {
   children: "Text",
-  size: ButtonSize.XL
+  size: ButtonSize.XL,
 };
 
 export const Clear = Template.bind({});
@@ -102,4 +102,11 @@ SquareXL.args = {
   theme: ButtonTheme.BACKGROUND_INVERTED,
   square: true,
   size: ButtonSize.XL,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: "Text",
+  theme: ButtonTheme.OUTLINE,
+  disabled: true,
 };

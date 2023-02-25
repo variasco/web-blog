@@ -13,10 +13,11 @@
   "something-went-wrong": "Something went wrong",
   "reload-page": "Reload page",
   "throw-error": "Throw error",
-  "sigh-in": "Sign In",
+  "sign-in": "Sign In",
   "increment": "Increment",
   "decrement": "Decrement",
-  "sign-in": "Sign in",
   "enter-username": "Enter username",
-  "enter-password": "Enter password"
+  "enter-password": "Enter password",
+  "authentication": "Authentication form",
+  "sign-out": "Sign Out"
 }

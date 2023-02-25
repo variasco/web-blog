@@ -41,6 +41,7 @@ export const Input = memo((props: InputProps) => {
           ref={ref}
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onSelect={(e: any) => setCaretPosition(e?.target?.selectionStart || 0)}
           value={value}
           onChange={onChangeHandler}
