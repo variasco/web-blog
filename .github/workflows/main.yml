@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
     steps:
     - name: Checkout commit
       uses: actions/checkout@v3
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
     steps:
     - name: Cache deps
       uses: actions/cache@v3
@@ -51,28 +51,28 @@ jobs:
     - name: unit testing
       run: npm run test:unit
 
-# storybook:
-#   runs-on: ubuntu-latest
-#   strategy:
-#     matrix:
-#       node-version: [16.x]
-#   needs: [linting, unit-test]
-#   steps:
-#   - name: Cache deps
-#     uses: actions/cache@v3
-#     with:
-#       path: ~/.npm
-#       key: node-modules-${{ hashFiles('**/package-lock.json') }}
-#   - uses: actions/checkout@v3
-#   - name: Starting Node.js ${{ matrix.node-version }}
-#     uses: actions/setup-node@v3
-#     with:
-#       node-version: ${{ matrix.node-version }}
-#   - name: install modules
-#     run: npm i
-#   - name: build production project
-#     run: npm run build:prod
-#   - name: build storybook
-#     run: npm run storybook:build
-#   - name: screenshot testing
-#     run: npm run test:ui:ci
+storybook:
+  runs-on: ubuntu-latest
+  strategy:
+    matrix:
+      node-version: [18.x]
+  needs: [linting, unit-test]
+  steps:
+  - name: Cache deps
+    uses: actions/cache@v3
+    with:
+      path: ~/.npm
+      key: node-modules-${{ hashFiles('**/package-lock.json') }}
+  - uses: actions/checkout@v3
+  - name: Starting Node.js ${{ matrix.node-version }}
+    uses: actions/setup-node@v3
+    with:
+      node-version: ${{ matrix.node-version }}
+  - name: install modules
+    run: npm i
+  - name: build storybook
+    # - name: build production project
+    #   run: npm run build:prod
+    run: npm run storybook:build
+  - name: screenshot testing
+    run: npm run test:ui:ci
