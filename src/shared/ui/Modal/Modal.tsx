@@ -57,9 +57,6 @@ export const Modal: FC<ModalProps> = (props) => {
     if (open) {
       setMounted(true);
     }
-    return () => {
-      setMounted(false);
-    };
   }, [open]);
 
   if (lazy && !mounted) {
