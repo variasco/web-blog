@@ -1,6 +1,6 @@
 import {  useEffect, useRef } from "react";
 
-export default function useClickOutside(onClick: () => void) {
+export function useClickOutside(onClick: () => void) {
   const containerRef = useRef(null);
 
   useEffect(() => {

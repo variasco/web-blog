@@ -1,7 +1,7 @@
 import { Reducer } from "@reduxjs/toolkit";
 import { StoreWithManager } from "app/providers/StoreProvider";
 import { StateSchemaKey } from "app/providers/StoreProvider/config/StateSchema";
-import { FC, ReactNode, useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import { useDispatch, useStore } from "react-redux";
 
 export type ReducersList = {
@@ -13,10 +13,11 @@ type ReducersListEntry = [StateSchemaKey, Reducer];
 export interface DynamicModuleLoaderProps {
   children: ReactNode;
   reducers: ReducersList;
+  removeOnUnmount?: boolean;
 }
 
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
-  const { children, reducers } = props;
+export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
+  const { children, reducers, removeOnUnmount = false } = props;
   const store = useStore() as StoreWithManager;
   const dispatch = useDispatch();
 
@@ -27,10 +28,12 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     });
 
     return () => {
-      Object.entries(reducers).forEach(([stateKey]: ReducersListEntry) => {
-        store.reducerManager.remove("loginForm");
-        dispatch({ type: `@DESTROY ${stateKey} reducer` });
-      });
+      if (removeOnUnmount) {
+        Object.entries(reducers).forEach(([stateKey]: ReducersListEntry) => {
+          store.reducerManager.remove(stateKey);
+          dispatch({ type: `@DESTROY ${stateKey} reducer` });
+        });
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

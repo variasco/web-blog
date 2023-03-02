@@ -5,6 +5,7 @@
   "main-page": "Main page",
   "about-link": "About us",
   "main-link": "Main",
+  "profile-link": "Profile",
   "toggle": "toggle",
   "language": "English",
   "short-language": "En",
@@ -19,5 +20,6 @@
   "enter-username": "Enter username",
   "enter-password": "Enter password",
   "authentication": "Authentication form",
-  "sign-out": "Sign Out"
+  "sign-out": "Sign Out",
+  "profile-page": "Profile"
 }

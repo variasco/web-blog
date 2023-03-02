@@ -19,7 +19,7 @@ Light.decorators = [StoreDecorator({ user: { authData: undefined } })];
 
 export const LightLoggedIn = Template.bind({});
 LightLoggedIn.args = {};
-LightLoggedIn.decorators = [StoreDecorator({ user: { authData: { id: 1, username: "JohnDoe" } } })];
+LightLoggedIn.decorators = [StoreDecorator({ user: { authData: { id: "1", username: "JohnDoe" } } })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
@@ -29,5 +29,5 @@ export const DarkLoggedIn = Template.bind({});
 DarkLoggedIn.args = {};
 DarkLoggedIn.decorators = [
   ThemeDecorator(Theme.DARK),
-  StoreDecorator({ user: { authData: { id: 1, username: "JohnDoe" } } }),
+  StoreDecorator({ user: { authData: { id: "1", username: "JohnDoe" } } }),
 ];

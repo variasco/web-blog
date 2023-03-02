@@ -1,25 +1,20 @@
 import { LanguageSwitcher } from "features/LanguageSwither";
 import { ThemeSwitcher } from "features/ThemeSwitcher";
-import { FC, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { memo, useState } from "react";
 import { classNames as cn } from "shared/lib/classNames/classNames";
-import { AppLink, Button, ThemeButton } from "shared/ui";
+import { Button, ThemeButton } from "shared/ui";
 import { ButtonSize } from "shared/ui/Button/Button";
+import { SidebarItemsList } from "../../model/items";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 import styles from "./Sidebar.module.scss";
-import AboutIcon from "shared/assets/icons/about.svg";
-import HomeIcon from "shared/assets/icons/home.svg";
 
 export interface SidebarProps {
-  // extends DetailedReactHTMLElement<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
   className?: string;
 }
 
-export const Sidebar: FC<SidebarProps> = (props) => {
+export const Sidebar = memo((props: SidebarProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState<boolean>(false);
-
-  const { t } = useTranslation();
 
   function onToggle() {
     setCollapsed((prev) => !prev);
@@ -31,14 +26,9 @@ export const Sidebar: FC<SidebarProps> = (props) => {
       className={cn(styles.root, { [styles.collapsed]: collapsed }, [className])}
     >
       <div className={styles.menu}>
-        <AppLink className={styles.menuLink} to={RoutePath.main}>
-          <HomeIcon className={styles.icon} />
-          <span className={styles.text}>{t("main-link")}</span>
-        </AppLink>
-        <AppLink className={styles.menuLink} to={RoutePath.about}>
-          <AboutIcon className={styles.icon} />
-          <span className={styles.text}>{t("about-link")}</span>
-        </AppLink>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+        ))}
       </div>
       <div className={styles.switchers}>
         <LanguageSwitcher short={collapsed} className={styles.langSwitcher} />
@@ -56,4 +46,4 @@ export const Sidebar: FC<SidebarProps> = (props) => {
       </Button>
     </div>
   );
-};
+});

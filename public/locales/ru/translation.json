@@ -5,6 +5,7 @@
   "main-page": "Главная страница",
   "about-link": "О нас",
   "main-link": "Главная",
+  "profile-link": "Профиль",
   "toggle": "переключить",
   "language": "Русский",
   "short-language": "Ru",
@@ -19,5 +20,6 @@
   "enter-username": "Введите username",
   "enter-password": "Введите пароль",
   "authentication": "Форма авторизации",
-  "sign-out": "Выйти"
+  "sign-out": "Выйти",
+  "profile-page": "Профиль"
 }

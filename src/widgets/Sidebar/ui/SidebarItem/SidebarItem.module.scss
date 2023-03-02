@@ -1,0 +1,36 @@
+.menuLink {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.menuLink:hover {
+  color: var(--inverted-secondary-color);
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+  margin-left: 30px;
+}
+
+.menuLink:hover .icon {
+  fill: var(--inverted-secondary-color);
+}
+
+.text {
+  opacity: 1;
+  transition: opacity 0.2s;
+  height: 24px;
+}
+
+.collapsed {
+  .menuLink {
+    gap: 0;
+  }
+
+  .text {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+  }
+}

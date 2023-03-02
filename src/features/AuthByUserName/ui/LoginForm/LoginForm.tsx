@@ -1,10 +1,10 @@
-import { FC, useCallback } from "react";
+import { FC, KeyboardEvent, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { classNames as cn } from "shared/lib/classNames/classNames";
-import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { Button, Input, Text, ThemeText } from "shared/ui";
-import { ButtonTheme } from "shared/ui/Button/Button";
+import { useSelector } from "react-redux";
+import { classNames as cn } from "shared/lib";
+import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
+import { useAppDispatch } from "shared/lib/hooks";
+import { Button, Input, Text, ThemeButton, ThemeText } from "shared/ui";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
 import { getLoginLoading } from "../../model/selectors/getLoginLoading/getLoginLoading";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
@@ -15,6 +15,7 @@ import styles from "./LoginForm.module.scss";
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess?: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -22,9 +23,9 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm: FC<LoginFormProps> = (props) => {
-  const { className } = props;
+  const { className, onSuccess } = props;
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
@@ -44,13 +45,23 @@ const LoginForm: FC<LoginFormProps> = (props) => {
     [dispatch]
   );
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUserName({ username, password }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUserName({ username, password }));
+    if (result.meta.requestStatus === "fulfilled") {
+      onSuccess();
+    }
+  }, [dispatch, onSuccess, password, username]);
+
+  const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (e.key === "Enter") {
+      onLoginClick();
+    }
+  };
 
   return (
-    <DynamicModuleLoader reducers={initialReducers}>
-      <div className={cn(styles.root, {}, [className])}>
+    <DynamicModuleLoader reducers={initialReducers} removeOnUnmount>
+      <form  action="" className={cn(styles.root, {}, [className])}>
         <Text title={t("authentication")} />
         <Input
           value={username}
@@ -67,14 +78,16 @@ const LoginForm: FC<LoginFormProps> = (props) => {
         />
         {error && <Text text={error} theme={ThemeText.ERROR} />}
         <Button
+          type="submit"
           disabled={isLoading}
           onClick={onLoginClick}
-          theme={ButtonTheme.OUTLINE}
+          onKeyDown={onKeyDown}
+          theme={ThemeButton.OUTLINE}
           className={styles.loginButton}
         >
           {t("sign-in")}
         </Button>
-      </div>
+      </form>
     </DynamicModuleLoader>
   );
 };
