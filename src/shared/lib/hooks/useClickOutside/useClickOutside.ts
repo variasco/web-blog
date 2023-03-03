@@ -1,12 +1,11 @@
-import {  useEffect, useRef } from "react";
+import {  MutableRefObject, useEffect, useRef } from "react";
 
 export function useClickOutside(onClick: () => void) {
-  const containerRef = useRef(null);
+  const containerRef = useRef(null) as MutableRefObject<any>;
 
   useEffect(() => {
     function clickOutside(e: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(e.target)) {
-        console.log("close click");
         onClick();
       }
     }

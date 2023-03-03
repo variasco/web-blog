@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, memo, ReactNode } from "react";
-import { classNames as cn } from "shared/lib/classNames/classNames";
+import { classNames as cn } from "shared/lib";
+import { ThemeButton } from "..";
 import styles from "./Button.module.scss";
 
 export enum ButtonTheme {
@@ -29,7 +30,7 @@ export const Button = memo((props: ButtonProps) => {
   const {
     children,
     className,
-    theme,
+    theme = ThemeButton.OUTLINE,
     square = false,
     size = ButtonSize.M,
     disabled,

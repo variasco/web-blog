@@ -1,4 +1,13 @@
-import { FC, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import {
+  FC,
+  MouseEvent,
+  MutableRefObject,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { classNames as cn } from "shared/lib/classNames/classNames";
 import { Portal } from "shared/ui";
 import styles from "./Modal.module.scss";
@@ -16,7 +25,7 @@ export const Modal: FC<ModalProps> = (props) => {
   const [closing, setClosing] = useState<boolean>(false);
   const [mounted, setMounted] = useState<boolean>(false);
 
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const TIMER_DELAY = 200;
 
   const closeHandler = useCallback(() => {

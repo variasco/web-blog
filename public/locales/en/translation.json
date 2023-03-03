@@ -20,6 +20,5 @@
   "enter-username": "Enter username",
   "enter-password": "Enter password",
   "authentication": "Authentication form",
-  "sign-out": "Sign Out",
-  "profile-page": "Profile"
+  "sign-out": "Sign Out"
 }

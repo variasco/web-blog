@@ -1,0 +1,19 @@
+.root {
+  padding: 20px;
+  border: 2px solid var(--inverted-bg-color);
+}
+
+.header {
+  display: flex;
+}
+
+.editButton {
+  margin-left: auto;
+}
+
+.data {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

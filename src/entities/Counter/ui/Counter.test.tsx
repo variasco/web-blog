@@ -1,4 +1,3 @@
-import { DeepPartial } from "@reduxjs/toolkit";
 import { screen } from "@testing-library/react";
 import { StateSchema } from "app/providers/StoreProvider";
 import { componentRender } from "shared/lib/tests/componentRender";

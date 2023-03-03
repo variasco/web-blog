@@ -20,6 +20,5 @@
   "enter-username": "Введите username",
   "enter-password": "Введите пароль",
   "authentication": "Форма авторизации",
-  "sign-out": "Выйти",
-  "profile-page": "Профиль"
+  "sign-out": "Выйти"
 }
