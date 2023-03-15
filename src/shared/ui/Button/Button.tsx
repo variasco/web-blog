@@ -1,6 +1,5 @@
 import { ButtonHTMLAttributes, memo, ReactNode } from "react";
 import { classNames as cn } from "shared/lib";
-import { ThemeButton } from "..";
 import styles from "./Button.module.scss";
 
 export enum ButtonTheme {
