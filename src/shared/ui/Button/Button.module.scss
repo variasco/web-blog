@@ -22,6 +22,12 @@
   border: 1px solid var(--primary-color);
 }
 
+.outline_red {
+  background: none;
+  border: 1px solid var(--red-light);
+  color: var(--red-light);
+}
+
 .background,
 .backgroundInverted {
   background: var(--bg-color);

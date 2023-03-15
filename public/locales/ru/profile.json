@@ -2,5 +2,21 @@
   "profile-page": "Профиль",
   "edit": "Редактировать",
   "firstname": "Ваше имя",
-  "lastname": "Ваша фамилия"
+  "lastname": "Ваша фамилия",
+  "fetching-profile-error": "Произошла ошибка при загрузке профиля",
+  "try-to-reload": "Попробуйте перезагрузить страницу",
+  "cancel": "Отменить",
+  "save": "Сохранить",
+  "username": "Имя пользователя",
+  "age": "Возраст",
+  "city": "Город",
+  "avatar": "Аватар",
+  "currency": "Валюта",
+  "country": "Страна",
+  "incorrect-age": "Некорректный возраст",
+  "incorrect-city": "Некорректный город",
+  "incorrect-country": "Некорректная страна",
+  "first-n-second-names-is-required": "Имя и фамилия обязательны",
+  "data-not-specified": "Данные не указаны",
+  "server-error": "Ошибка со стороны сервера"
 }

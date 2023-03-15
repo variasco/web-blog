@@ -2,21 +2,36 @@ import { InputHTMLAttributes, memo, MutableRefObject, useEffect, useRef, useStat
 import { classNames as cn } from "shared/lib/classNames/classNames";
 import styles from "./Input.module.scss";
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange">;
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "value" | "onChange" | "readOnly"
+>;
 
 export interface InputProps extends HTMLInputProps {
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   type?: string;
   placeholder?: string;
   autofocus?: boolean;
+  readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
-  const { className, value, onChange, type = "text", placeholder, autofocus, ...restProps } = props;
+  const {
+    className,
+    value,
+    onChange,
+    type = "text",
+    placeholder,
+    autofocus,
+    readonly,
+    ...restProps
+  } = props;
   const [focused, setFocused] = useState<boolean>(false);
   const [caretPosition, setCaretPosition] = useState<number>(0);
+
+  const isCaretVisible = focused && !readonly;
 
   const ref = useRef(null) as MutableRefObject<any>;
 
@@ -37,7 +52,7 @@ export const Input = memo((props: InputProps) => {
       {placeholder && <div className={styles.placeholder}>{`${placeholder} >`}</div>}
       <div className={styles.caretWrapper}>
         <input
-          className={styles.input}
+          className={cn(styles.input, { [styles.readonly]: readonly })}
           ref={ref}
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
@@ -46,9 +61,12 @@ export const Input = memo((props: InputProps) => {
           value={value}
           onChange={onChangeHandler}
           type={type}
+          readOnly={readonly}
           {...restProps}
         />
-        {focused && <span style={{ left: `${caretPosition * 8.8}px` }} className={styles.caret} />}
+        {isCaretVisible && (
+          <span style={{ left: `${caretPosition * 8.8}px` }} className={styles.caret} />
+        )}
       </div>
     </div>
   );

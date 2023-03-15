@@ -4,9 +4,11 @@ import { ThemeButton } from "..";
 import styles from "./Button.module.scss";
 
 export enum ButtonTheme {
+  PRIMARY = "primary",
   CLEAR = "clear",
   CLEAR_INVERTED = "clearInverted",
   OUTLINE = "outline",
+  OUTLINE_RED = "outline_red",
   BACKGROUND = "background",
   BACKGROUND_INVERTED = "backgroundInverted",
 }
@@ -30,7 +32,7 @@ export const Button = memo((props: ButtonProps) => {
   const {
     children,
     className,
-    theme = ThemeButton.OUTLINE,
+    theme = ButtonTheme.PRIMARY,
     square = false,
     size = ButtonSize.M,
     disabled,

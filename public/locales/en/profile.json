@@ -2,5 +2,15 @@
   "profile-page": "Profile",
   "edit": "Edit",
   "firstname": "Your firstname",
-  "lastname": "Your lastname"
+  "lastname": "Your lastname",
+  "try-to-reload": "Try reloading the page",
+  "fetching-profile-error": "An error occurred while loading the profile",
+  "cancel": "Cancel",
+  "save": "Save",
+  "username": "Username",
+  "age": "Age",
+  "city": "City",
+  "avatar": "Avatar",
+  "currency": "Currency",
+  "country": "Country"
 }
