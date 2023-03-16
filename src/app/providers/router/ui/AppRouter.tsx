@@ -1,6 +1,4 @@
-import { getUserAuthData } from "entities/User";
-import { memo, Suspense, useCallback, useMemo } from "react";
-import { useSelector } from "react-redux";
+import { memo, Suspense, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AppRouteProps, routeConfig } from "shared/config/routeConfig/routeConfig";
 import { PageLoader } from "widgets/PageLoader";
@@ -13,7 +11,7 @@ function AppRouter() {
         <div className="page-wrapper">{route.element}</div>
       </Suspense>
     );
-    
+
     return (
       <Route
         key={route.path}
