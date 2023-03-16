@@ -2,9 +2,11 @@
 @import "./variables/global";
 @import "./themes/dark";
 @import "./themes/light";
+@import "./themes/orange";
 
 .app.app-dark-theme,
 .app.app-light-theme,
+.app.app-orange-theme,
 body {
   font: var(--font-m);
   color: var(--primary-color);

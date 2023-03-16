@@ -1,4 +1,5 @@
 .vscode
+.fttemplates
 node_modules
 /build
 /storybook-static
