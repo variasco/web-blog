@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybook/decorators";
-import { Text, TextTheme } from "./Text";
+import { Text, TextSize, TextTheme } from "./Text";
 
 export default {
   title: "shared/Text",
@@ -17,6 +17,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   title: "Title for title",
   text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, architecto?",
+};
+
+export const PrimarySizeL = Template.bind({});
+PrimarySizeL.args = {
+  title: "Title for title",
+  text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, architecto?",
+  size: TextSize.L,
 };
 
 export const Error = Template.bind({});

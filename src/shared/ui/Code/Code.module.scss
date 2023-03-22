@@ -1,0 +1,25 @@
+.wrapper {
+  position: relative;
+  border: 1px solid var(--primary-color);
+}
+
+.root {
+  display: block;
+  padding: 20px;
+  overflow-x: auto;
+  background-color: var(--code-bg);
+}
+
+.icon {
+  stroke: var(--primary-color);
+}
+
+.copy {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+
+  &:hover .icon {
+    stroke: var(--secondary-color);
+  }
+}

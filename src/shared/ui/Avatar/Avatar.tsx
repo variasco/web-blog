@@ -1,8 +1,8 @@
-import { CSSProperties, HTMLAttributes, memo, useMemo } from "react";
+import { CSSProperties, memo, useMemo } from "react";
 import { classNames as cn } from "shared/lib";
 import styles from "./Avatar.module.scss";
 
-export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
+export interface AvatarProps {
   className?: string;
   src?: string;
   size?: number;

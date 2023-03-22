@@ -29,7 +29,7 @@ function myGetLocalIdent(
 ): string {
   const base = path.parse(context.resourcePath)?.name?.replace(/\.module$/, "");
   const localIdentHash = getLocalIdentHash(localName);
-  const whiteList = ["blink"];
+  const whiteList = ["blink", "load"];
 
   if (whiteList.includes(localName)) {
     return localName;

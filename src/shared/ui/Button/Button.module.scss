@@ -4,17 +4,28 @@
   color: var(--primary-color);
 }
 
-.clear,
-.clearInverted {
+.clear {
   padding: 0;
   background: none;
   border: none;
   outline: none;
   color: var(--primary-color);
+
+  &:hover {
+    color: var(--secondary-color);
+  }
 }
 
 .clearInverted {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
   color: var(--inverted-primary-color);
+
+  &:hover {
+    color: var(--inverted-secondary-color);
+  }
 }
 
 .outline {
