@@ -1,0 +1,12 @@
+.root {
+  padding: 16px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.input {
+  flex-grow: 1;
+}

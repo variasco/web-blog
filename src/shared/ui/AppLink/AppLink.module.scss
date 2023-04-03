@@ -1,9 +1,17 @@
 .primary {
   color: var(--inverted-primary-color);
+
+  &:hover {
+    color: var(--inverted-secondary-color);
+  }
 }
 
 .inverted {
   color: var(--primary-color);
+
+  &:hover {
+    color: var(--secondary-color);
+  }
 }
 
 .red {

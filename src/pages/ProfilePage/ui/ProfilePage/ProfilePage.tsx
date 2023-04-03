@@ -1,3 +1,4 @@
+import { Country } from "entities/Country/model/types/Country";
 import { Currency } from "entities/Currency";
 import {
   fetchProfileData,
@@ -11,17 +12,17 @@ import {
   profileReducer,
   ValidateProfileError,
 } from "entities/Profile";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Country } from "entities/Country/model/types/Country";
+import { useParams } from "react-router-dom";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
-import { useAppDispatch } from "shared/lib/hooks";
-import { ProfilePageHeader } from "../ProfilePageHeader/ProfilePageHeader";
-import styles from "./ProfilePage.module.scss";
+import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
 import { Text } from "shared/ui";
 import { TextTheme } from "shared/ui/Text/Text";
-import { useTranslation } from "react-i18next";
+import { ProfilePageHeader } from "../ProfilePageHeader/ProfilePageHeader";
+import styles from "./ProfilePage.module.scss";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -40,6 +41,8 @@ const ProfilePage = (props: ProfilePageProps) => {
   const loading = useSelector(getProfileLoading);
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
+
+  const { id } = useParams<{ id: string }>();
 
   const validateErrorTranslates = {
     [ValidateProfileError.INCORRECT_AGE]: t("incorrect-age"),
@@ -106,11 +109,11 @@ const ProfilePage = (props: ProfilePageProps) => {
     [dispatch]
   );
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount>

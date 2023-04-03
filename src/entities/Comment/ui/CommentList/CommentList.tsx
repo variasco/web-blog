@@ -15,10 +15,22 @@ export const CommentList = (props: CommentListProps) => {
   const { className, comments, isLoading } = props;
   const { t } = useTranslation();
 
+  if (isLoading) {
+    return (
+      <div className={cn(styles.root, {}, [className])}>
+        <CommentItem isLoading />
+        <CommentItem isLoading />
+        <CommentItem isLoading />
+      </div>
+    );
+  }
+
   return (
     <div className={cn(styles.root, {}, [className])}>
       {comments?.length ? (
-        comments.map((comment) => <CommentItem isLoading={isLoading} key={comment.id} comment={comment} />)
+        comments.map((comment) => (
+          <CommentItem isLoading={isLoading} key={comment.id} comment={comment} />
+        ))
       ) : (
         <Text text={t("no-comments")} />
       )}

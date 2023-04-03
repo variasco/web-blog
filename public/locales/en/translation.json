@@ -22,5 +22,7 @@
   "enter-password": "Enter password",
   "authentication": "Authentication form",
   "sign-out": "Sign Out",
-  "no-comments": "No comments"
+  "no-comments": "No comments",
+  "enter-comment-text": "Enter comment text",
+  "send": "Send"
 }
