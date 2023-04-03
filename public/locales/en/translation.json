@@ -21,5 +21,6 @@
   "enter-username": "Enter username",
   "enter-password": "Enter password",
   "authentication": "Authentication form",
-  "sign-out": "Sign Out"
+  "sign-out": "Sign Out",
+  "no-comments": "No comments"
 }
