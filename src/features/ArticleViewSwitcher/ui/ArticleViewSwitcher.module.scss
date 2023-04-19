@@ -1,0 +1,8 @@
+.root {
+  display: flex;
+  gap: 8px;
+}
+
+.notSelected {
+  fill: var(--secondary-color);
+}
