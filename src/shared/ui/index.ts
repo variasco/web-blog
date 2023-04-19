@@ -1,6 +1,7 @@
 export { AppLink } from "./AppLink/AppLink";
 export { Avatar } from "./Avatar/Avatar";
-export { Button, ButtonTheme as ThemeButton, ButtonSize } from "./Button/Button";
+export { Button, ButtonSize, ButtonTheme as ThemeButton } from "./Button/Button";
+export { Card } from "./Card/Card";
 export { Code } from "./Code/Code";
 export { Icon } from "./Icon/Icon";
 export { Input } from "./Input/Input";

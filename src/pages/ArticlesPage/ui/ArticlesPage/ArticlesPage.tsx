@@ -1,5 +1,5 @@
+import { ArticleList, ArticleView } from "entities/Article";
 import { memo } from "react";
-import { classNames as cn } from "shared/lib";
 
 export interface ArticlesPageProps {
   className?: string;
@@ -10,7 +10,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
   return (
     <div className={className}>
-      {"ArticlesPage"}
+      <ArticleList isLoading view={ArticleView.LIST} articles={[]} />
     </div>
   );
 };

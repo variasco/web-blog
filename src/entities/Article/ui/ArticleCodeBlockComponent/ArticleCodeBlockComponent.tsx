@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { classNames as cn } from "shared/lib";
 import { Code } from "shared/ui";
 import { ArticleCodeBlock } from "../../model/types/Article";
 

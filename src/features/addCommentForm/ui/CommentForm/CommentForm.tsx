@@ -25,7 +25,7 @@ const CommentForm = (props: CommentFormProps) => {
   const { className, onSendComment } = props;
   const { t } = useTranslation();
   const text = useSelector(getCommentFormText);
-  const error = useSelector(getCommentFormError);
+  // const error = useSelector(getCommentFormError);
   const dispatch = useAppDispatch();
 
   const onCommentChange = useCallback(

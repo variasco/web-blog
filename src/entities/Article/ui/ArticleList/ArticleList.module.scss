@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  gap: 16px;
+}
+
+.list {
+  flex-direction: column;
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

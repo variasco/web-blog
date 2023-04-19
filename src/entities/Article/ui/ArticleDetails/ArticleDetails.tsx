@@ -27,7 +27,7 @@ export interface ArticleDetailsProps {
 
 export const ArticleDetails = (props: ArticleDetailsProps) => {
   const { className, id } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation("articles");
   const dispatch = useAppDispatch();
   const data = useSelector(getArticleDetailsData);
   const loading = useSelector(getArticleDetailsLoading);

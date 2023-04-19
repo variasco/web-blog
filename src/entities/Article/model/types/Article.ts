@@ -1,12 +1,20 @@
+import { User } from "entities/User";
+
 export interface Article {
   id: string;
+  user: User;
   title: string;
   subtitle: string;
   img: string;
-  views: number;
+  views: number; 
   createdAt: string;
   type: ArticleType[];
   blocks: ArticleBlock[];
+}
+
+export enum ArticleView {
+  TILES = "tiles",
+  LIST = "list",
 }
 
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
