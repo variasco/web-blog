@@ -24,15 +24,10 @@ export const ArticleList = (props: ArticleListProps) => {
     return <ArticleListItem key={article.id} article={article} view={view} />;
   };
 
-  if (isLoading) {
-    return (
-      <div className={cn(styles.root, {}, [className, styles[view]])}>{getSkeletons(view)}</div>
-    );
-  }
-
   return (
     <div className={cn(styles.root, {}, [className, styles[view]])}>
       {articles.length ? articles.map(renederArticle) : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 };

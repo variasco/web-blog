@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
-import { Button, Text, ThemeButton } from "shared/ui";
+import { Button, Page, Text, ThemeButton } from "shared/ui";
 import { getArticleCommentsLoading } from "../../model/selectors/getArticleCommentsLoading/getArticleCommentsLoading";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
@@ -49,20 +49,21 @@ const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
   useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)));
 
   if (!id) {
-    return <div className={className}>{t("article-not-found")}</div>;
+    return <Page className={className}>{t("article-not-found")}</Page>;
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount>
-      <div className={className}>
+      <Page className={className}>
         <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
           {t("back-to-list")}
         </Button>
         <ArticleDetails id={id} />
         <Text className={styles.commentsTitile} title={t("comments")} />
+        <Text className={styles.commentsTitile} title={t("hasd")} />
         <CommentForm onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
