@@ -60,7 +60,6 @@ const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
         </Button>
         <ArticleDetails id={id} />
         <Text className={styles.commentsTitile} title={t("comments")} />
-        <Text className={styles.commentsTitile} title={t("hasd")} />
         <CommentForm onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </Page>

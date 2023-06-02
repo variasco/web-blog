@@ -11,6 +11,7 @@ const articlesPage: ArticlesPageSchema = {
   page: 2,
   view: ArticleView.TILES,
   limit: 5,
+  _inited: false,
 };
 
 jest.mock("../fetchArticlesList/fetchArticlesList");
