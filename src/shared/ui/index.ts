@@ -7,7 +7,6 @@ export { Icon } from "./Icon/Icon";
 export { Input } from "./Input/Input";
 export { Loader } from "./Loader/Loader";
 export { Modal } from "./Modal/Modal";
-export { Page } from "./Page/Page";
 export { Portal } from "./Portal/Portal";
 export { Select } from "./Select/Select";
 export { Skeleton } from "./Skeleton/Skeleton";

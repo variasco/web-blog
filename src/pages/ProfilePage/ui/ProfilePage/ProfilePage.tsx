@@ -19,10 +19,11 @@ import { useParams } from "react-router-dom";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
-import { Page, Text } from "shared/ui";
+import { Text } from "shared/ui";
 import { TextTheme } from "shared/ui/Text/Text";
 import { ProfilePageHeader } from "../ProfilePageHeader/ProfilePageHeader";
 import styles from "./ProfilePage.module.scss";
+import { Page } from "widgets/Page/Page";
 
 const reducers: ReducersList = {
   profile: profileReducer,

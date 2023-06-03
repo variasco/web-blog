@@ -5,7 +5,7 @@ import { memo, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
-import { Page } from "shared/ui";
+import { Page } from "widgets/Page/Page";
 import {
   getArticlesPageLoading,
   getArticlesPageView,

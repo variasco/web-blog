@@ -5,9 +5,11 @@ import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
-import { Button, Page, Text, ThemeButton } from "shared/ui";
+import { Button, Text, ThemeButton } from "shared/ui";
+import { Page } from "widgets/Page/Page";
 import { getArticleCommentsLoading } from "../../model/selectors/getArticleCommentsLoading/getArticleCommentsLoading";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
@@ -16,7 +18,6 @@ import {
   getArticleComments,
 } from "../../model/slice/ArticleDatailsCommentsSlice";
 import styles from "./ArticleDatailsPage.module.scss";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 export interface ArticleDatailsPageProps {
   className?: string;

@@ -11,6 +11,7 @@ import { CounterSchema } from "entities/Counter";
 import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUserName";
+import { ScrollSaveSchema } from "features/ScrollSave";
 import { CommentFormSchema } from "features/addCommentForm";
 import { ArticleDatailsCommentsSchema } from "pages/ArticleDatailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
@@ -18,6 +19,8 @@ import { ArticlesPageSchema } from "pages/ArticlesPage";
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
+
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
