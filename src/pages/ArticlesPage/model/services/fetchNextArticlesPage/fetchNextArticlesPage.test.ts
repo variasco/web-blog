@@ -1,7 +1,7 @@
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk";
 import { fetchNextArticlesPage } from "./fetchNextArticlesPage";
 import { ArticlesPageSchema } from "../../types/ArticlesPageSchema";
-import { ArticleView } from "entities/Article";
+import { ArticleSortField, ArticleView } from "entities/Article";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
 
 const articlesPage: ArticlesPageSchema = {
@@ -12,6 +12,9 @@ const articlesPage: ArticlesPageSchema = {
   view: ArticleView.TILES,
   limit: 5,
   _inited: false,
+  search: "",
+  sort: ArticleSortField.CREATED_AT,
+  order: "desc",
 };
 
 jest.mock("../fetchArticlesList/fetchArticlesList");

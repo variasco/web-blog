@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { classNames as cn } from "shared/lib/classNames/classNames";
+import { classNames as cn } from "shared/lib";
 import { Portal } from "shared/ui";
 import styles from "./Modal.module.scss";
 

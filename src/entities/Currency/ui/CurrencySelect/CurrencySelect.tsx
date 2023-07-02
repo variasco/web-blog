@@ -19,7 +19,7 @@ const options = [
 
 export const CurrencySelect = (props: CurrencySelectProps) => {
   const { className, value, readonly, onChange } = props;
-  const { t } = useTranslation("profile");
+  const { t } = useTranslation();
 
   const onChangeHandler = useCallback(
     (value: string) => {

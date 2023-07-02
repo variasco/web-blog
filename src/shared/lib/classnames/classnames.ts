@@ -1,5 +1,5 @@
 type Argument =
-  | Record<string, boolean>
+  | Record<string, boolean | undefined>
   | Array<string | number | undefined>
   | string
   | number

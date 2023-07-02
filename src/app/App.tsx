@@ -1,7 +1,7 @@
 import { getUserInited, userActions } from "entities/User";
 import { Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "shared/lib";
 import { Navbar } from "widgets/Navbar";
 import { PageLoader } from "widgets/PageLoader";
 import { Sidebar } from "widgets/Sidebar";

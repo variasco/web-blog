@@ -29,7 +29,7 @@ const reducers: ReducersList = {
 
 const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
   const { className } = props;
-  const { t } = useTranslation("articles");
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const commentsIsLoading = useSelector(getArticleCommentsLoading);
   const comments = useSelector(getArticleComments.selectAll);

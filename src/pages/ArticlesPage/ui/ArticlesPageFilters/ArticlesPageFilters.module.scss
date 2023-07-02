@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}

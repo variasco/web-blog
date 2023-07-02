@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames as cn } from "shared/lib/classNames/classNames";
+import { classNames as cn } from "shared/lib";
 import { Button } from "shared/ui";
 import styles from "./PageError.module.scss";
 

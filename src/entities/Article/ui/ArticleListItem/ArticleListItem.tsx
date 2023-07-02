@@ -22,7 +22,7 @@ export interface ArticleListItemProps {
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
   const { className, article, view } = props;
-  const { t } = useTranslation("articles");
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const onOpenArticle = useCallback(() => {

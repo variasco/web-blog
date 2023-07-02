@@ -19,7 +19,7 @@ export interface ProfilePageHeaderProps {
 
 export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   const { className } = props;
-  const { t } = useTranslation("profile");
+  const { t } = useTranslation();
   const readonly = useSelector(getProfileReadonly);
   const authData = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileData);

@@ -39,7 +39,7 @@ export const Page = (props: PageProps) => {
   return (
     <section className={cn(styles.root, {}, [className])} ref={wrapperRef} onScroll={onScroll}>
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd ? <div className={styles.trigger} ref={triggerRef} /> : null}
     </section>
   );
 };

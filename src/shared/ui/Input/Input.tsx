@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, memo, MutableRefObject, useEffect, useRef, useState } from "react";
-import { classNames as cn } from "shared/lib/classNames/classNames";
+import { classNames as cn } from "shared/lib";
 import styles from "./Input.module.scss";
 
 type HTMLInputProps = Omit<

@@ -6,7 +6,7 @@ export interface Article {
   title: string;
   subtitle: string;
   img: string;
-  views: number; 
+  views: number;
   createdAt: string;
   type: ArticleType[];
   blocks: ArticleBlock[];
@@ -51,4 +51,10 @@ export enum ArticleBlockType {
   CODE = "CODE",
   IMAGE = "IMAGE",
   TEXT = "TEXT",
+}
+
+export enum ArticleSortField {
+  VIEWS = "views",
+  TITLE = "title",
+  CREATED_AT = "created_at",
 }

@@ -36,7 +36,7 @@ export interface ProfilePageProps {
 const ProfilePage = (props: ProfilePageProps) => {
   const { className } = props;
   const dispatch = useAppDispatch();
-  const { t } = useTranslation("profile");
+  const { t } = useTranslation();
   const data = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const loading = useSelector(getProfileLoading);

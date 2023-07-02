@@ -1,5 +1,5 @@
 import { FC, Suspense } from "react";
-import { classNames as cn } from "shared/lib/classNames/classNames";
+import { classNames as cn } from "shared/lib";
 import { Loader, Modal } from "shared/ui";
 import { LoginFormAsync } from "../LoginForm/LoginForm.async";
 

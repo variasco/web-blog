@@ -21,7 +21,7 @@ const options = [
 
 export const CountrySelect = (props: CountrySelectProps) => {
   const { className, readonly, value, onChange } = props;
-  const { t } = useTranslation("profile");
+  const { t } = useTranslation();
 
   const onChangeHandler = useCallback(
     (value: string) => {
