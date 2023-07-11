@@ -78,9 +78,9 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     (tab: TabItem<ArticleType>) => {
       dispatch(articlesPageActions.setType(tab.value));
       dispatch(articlesPageActions.setPage(1));
-      debouncedFetchData();
+      fetchData();
     },
-    [debouncedFetchData, dispatch]
+    [fetchData, dispatch]
   );
 
   return (
