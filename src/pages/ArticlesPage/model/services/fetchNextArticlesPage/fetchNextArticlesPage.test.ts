@@ -1,8 +1,8 @@
+import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk";
-import { fetchNextArticlesPage } from "./fetchNextArticlesPage";
 import { ArticlesPageSchema } from "../../types/ArticlesPageSchema";
-import { ArticleSortField, ArticleView } from "entities/Article";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
+import { fetchNextArticlesPage } from "./fetchNextArticlesPage";
 
 const articlesPage: ArticlesPageSchema = {
   entities: {},
@@ -15,6 +15,7 @@ const articlesPage: ArticlesPageSchema = {
   search: "",
   sort: ArticleSortField.CREATED_AT,
   order: "desc",
+  type: ArticleType.ALL,
 };
 
 jest.mock("../fetchArticlesList/fetchArticlesList");
@@ -25,7 +26,7 @@ describe("fetchNextArticlesPage", () => {
     await thunk.callThunk();
 
     expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+    expect(fetchArticlesList).toHaveBeenCalledWith({});
   });
   test("fetchArticlesList not called", async () => {
     const thunk = new TestAsyncThunk(fetchNextArticlesPage, {

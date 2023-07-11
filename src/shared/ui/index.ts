@@ -10,4 +10,5 @@ export { Modal } from "./Modal/Modal";
 export { Portal } from "./Portal/Portal";
 export { Select, SelectOption } from "./Select/Select";
 export { Skeleton } from "./Skeleton/Skeleton";
+export { Tabs, TabItem, TabsProps } from "./Tabs/Tabs";
 export { Text, TextAlign, TextSize, TextTheme as ThemeText } from "./Text/Text";

@@ -1,22 +1,24 @@
-import { ArticleSortField, ArticleView } from "entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
 import { ArticleSortSelector } from "features/ArticleSortSelector";
 import { ArticleViewSwitcher } from "features/ArticleViewSwitcher";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
 import { useAppDispatch, useDebounce } from "shared/lib/hooks";
 import { SortOrder } from "shared/types";
-import { Card, Input } from "shared/ui";
+import { Card, Input, TabItem, Tabs } from "shared/ui";
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
+  getArticlesPageType,
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { articlesPageActions } from "../../model/slice/ArticlesPageSlice";
 import styles from "./ArticlesPageFilters.module.scss";
+import { ArticleTypeTabs } from "features/ArticleTypeTabs";
 
 export interface ArticlesPageFiltersProps {
   className?: string;
@@ -71,6 +73,16 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     [debouncedFetchData, dispatch]
   );
 
+  const type = useSelector(getArticlesPageType);
+  const onChangeType = useCallback(
+    (tab: TabItem<ArticleType>) => {
+      dispatch(articlesPageActions.setType(tab.value));
+      dispatch(articlesPageActions.setPage(1));
+      debouncedFetchData();
+    },
+    [debouncedFetchData, dispatch]
+  );
+
   return (
     <div className={cn(styles.root, {}, [className])}>
       <div className={styles.buttons}>
@@ -85,6 +97,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
       <Card>
         <Input value={search} onChange={onChangeSearch} placeholder={t("search")} />
       </Card>
+      <ArticleTypeTabs value={type} onTabClick={onChangeType} />
     </div>
   );
 };

@@ -55,5 +55,10 @@
   "sort-field": "Sort field",
   "by-date": "By date",
   "by-title": "By title",
-  "by-views": "By views"
+  "by-views": "By views",
+  "all": "ALL",
+  "it": "IT",
+  "economics": "ECONOMICS",
+  "science": "SCIENCE",
+  "articles-not-found": "Articles not found"
 }

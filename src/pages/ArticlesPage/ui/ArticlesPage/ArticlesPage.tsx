@@ -14,6 +14,7 @@ import { initArticlesPage } from "../../model/services/initArticlesPage/initArti
 import { articlesPageReducer, getArticles } from "../../model/slice/ArticlesPageSlice";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import styles from "./ArticlesPage.module.scss";
+import { useSearchParams } from "react-router-dom";
 
 export interface ArticlesPageProps {
   className?: string;
@@ -25,6 +26,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageLoading);
   const view = useSelector(getArticlesPageView) || ArticleView.TILES;
+  const [searchParams] = useSearchParams();
 
   const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
@@ -35,7 +37,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
 
   return (
