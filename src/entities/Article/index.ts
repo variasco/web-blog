@@ -1,14 +1,15 @@
 export { getArticleDetailsData } from "./model/selectots/articleDetails";
+export { articleDetailsActions, articleDetailsReducer } from "./model/slice/ArticleDetailsSlice";
 export {
   Article,
-  ArticleSortField,
-  ArticleView,
-  ArticleImageBlock,
-  ArticleCodeBlock,
-  ArticleTextBlock,
-  ArticleType,
   ArticleBlock,
   ArticleBlockType,
+  ArticleCodeBlock,
+  ArticleImageBlock,
+  ArticleSortField,
+  ArticleTextBlock,
+  ArticleType,
+  ArticleView,
 } from "./model/types/Article";
 export { ArticleDetailsSchema } from "./model/types/ArticleDetailsSchema";
 export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";

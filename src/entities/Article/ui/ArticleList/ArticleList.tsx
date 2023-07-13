@@ -1,16 +1,18 @@
+import { HTMLAttributeAnchorTarget } from "react";
+import { useTranslation } from "react-i18next";
 import { classNames as cn } from "shared/lib";
-import styles from "./ArticleList.module.scss";
+import { Text } from "shared/ui";
 import { Article, ArticleView } from "../../model/types/Article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
-import { Text } from "shared/ui";
-import { useTranslation } from "react-i18next";
+import styles from "./ArticleList.module.scss";
 
 export interface ArticleListProps {
   className?: string;
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -20,11 +22,11 @@ const getSkeletons = (view: ArticleView) => {
 };
 
 export const ArticleList = (props: ArticleListProps) => {
-  const { className, articles, isLoading = false, view = ArticleView.TILES } = props;
+  const { className, articles, target, isLoading = false, view = ArticleView.TILES } = props;
   const { t } = useTranslation();
 
   const renederArticle = (article: Article) => {
-    return <ArticleListItem key={article.id} article={article} view={view} />;
+    return <ArticleListItem key={article.id} article={article} view={view} target={target} />;
   };
 
   if (!isLoading && !articles.length) {
