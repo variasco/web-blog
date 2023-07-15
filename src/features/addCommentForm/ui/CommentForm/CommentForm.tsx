@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch } from "shared/lib/hooks";
-import { Button, Input, ThemeButton } from "shared/ui";
+import { Button, Input, ButtonTheme } from "shared/ui";
 import { getCommentFormText } from "../../model/selectors/getCommentFormText/getCommentForm";
 import { commentFormActions, commentFormReducer } from "../../model/slice/CommentFormSlice";
 import styles from "./CommentForm.module.scss";
@@ -45,7 +45,7 @@ const CommentForm = (props: CommentFormProps) => {
           onChange={onCommentChange}
           placeholder={t("enter-comment-text")}
         />
-        <Button onClick={onSendHandler} theme={ThemeButton.OUTLINE}>
+        <Button onClick={onSendHandler} theme={ButtonTheme.OUTLINE}>
           {t("send")}
         </Button>
       </div>

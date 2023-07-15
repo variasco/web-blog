@@ -3,8 +3,9 @@ import { LoginModal } from "features/AuthByUserName";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { Button, ThemeButton } from "shared/ui";
+import { AppLink, Button, ButtonTheme, Text, TextTheme } from "shared/ui";
 import styles from "./Navbar.module.scss";
 
 export interface NavbarProps {
@@ -21,19 +22,21 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     setAuthModalOpen(false);
   }, []);
 
-  const onAuthModalOpen = () => {
+  const onAuthModalOpen = useCallback(() => {
     setAuthModalOpen(true);
-  };
+  }, []);
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     dispatch(userActions.logout());
-  };
+  }, [dispatch]);
 
   if (authData) {
     return (
       <header className={cn(styles.root, {}, [className])}>
+        <Text theme={TextTheme.INVERTED} title={t("app-title")} />
         <div className={styles.links}>
-          <Button onClick={onLogout} theme={ThemeButton.CLEAR_INVERTED}>
+          <AppLink className={styles.newArticleButton} to={`${RoutePath.articles}/new`}>{t("create-article")}</AppLink>
+          <Button onClick={onLogout} theme={ButtonTheme.CLEAR_INVERTED}>
             {t("sign-out")}
           </Button>
         </div>
@@ -44,7 +47,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   return (
     <header className={cn(styles.root, {}, [className])}>
       <div className={styles.links}>
-        <Button onClick={onAuthModalOpen} theme={ThemeButton.CLEAR_INVERTED}>
+        <Button onClick={onAuthModalOpen} theme={ButtonTheme.CLEAR_INVERTED}>
           {t("sign-in")}
         </Button>
       </div>

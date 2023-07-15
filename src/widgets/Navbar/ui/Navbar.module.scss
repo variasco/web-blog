@@ -10,8 +10,14 @@
 
 .links {
   margin-left: auto;
+  display: flex;
+  gap: 12px;
 }
 
 .mainLink {
   margin-right: 15px;
+}
+
+.newArticleButton {
+  text-decoration: none;
 }

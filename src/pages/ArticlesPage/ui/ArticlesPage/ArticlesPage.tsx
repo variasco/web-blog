@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
-import { Page } from "widgets/Page/Page";
+import { Page } from "widgets/Page";
 import {
   getArticlesPageLoading,
   getArticlesPageView,

@@ -2,7 +2,7 @@ import { Country, CountrySelect } from "entities/Country";
 import { Currency, CurrencySelect } from "entities/Currency";
 import { useTranslation } from "react-i18next";
 import { classNames as cn } from "shared/lib";
-import { Avatar, Input, Loader, Text, TextAlign, ThemeText } from "shared/ui";
+import { Avatar, Input, Loader, Text, TextAlign, TextTheme } from "shared/ui";
 import { Profile } from "../../model/types/Profile";
 import styles from "./ProfileCard.module.scss";
 
@@ -52,7 +52,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
       <div className={cn(styles.root, {}, [className, styles.error])}>
         <Text
-          theme={ThemeText.ERROR}
+          theme={TextTheme.ERROR}
           title={t("fetching-profile-error")}
           text={t("try-to-reload")}
           align={TextAlign.CENTER}

@@ -3,7 +3,7 @@ import styles from "./ArticleViewSwitcher.module.scss";
 import { ArticleView } from "entities/Article";
 import TilesIcon from "shared/assets/icons/tiles.svg";
 import ListIcon from "shared/assets/icons/list.svg";
-import { Button, Icon, ThemeButton } from "shared/ui";
+import { Button, Icon, ButtonTheme } from "shared/ui";
 
 export interface ArticleViewSwitcherProps {
   className?: string;
@@ -31,7 +31,7 @@ export const ArticleViewSwitcher = (props: ArticleViewSwitcherProps) => {
     <div className={cn(styles.root, {}, [className])}>
       {viewTypes.map((item) => (
         <Button
-          theme={ThemeButton.CLEAR}
+          theme={ButtonTheme.CLEAR}
           key={item.view}
           onClick={onClick(item.view)}
         >

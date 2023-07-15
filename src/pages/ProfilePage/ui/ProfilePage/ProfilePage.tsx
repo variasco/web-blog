@@ -20,10 +20,10 @@ import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
 import { Text } from "shared/ui";
-import { TextTheme } from "shared/ui/Text/Text";
+import { TextTheme } from "shared/ui";
 import { ProfilePageHeader } from "../ProfilePageHeader/ProfilePageHeader";
 import styles from "./ProfilePage.module.scss";
-import { Page } from "widgets/Page/Page";
+import { Page } from "widgets/Page";
 
 const reducers: ReducersList = {
   profile: profileReducer,

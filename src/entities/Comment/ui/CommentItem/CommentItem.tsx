@@ -1,9 +1,8 @@
-import { Comment } from "../../model/types/Comment";
+import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
+import { AppLink, AppLinkTheme, Avatar, Skeleton, Text } from "shared/ui";
+import { Comment } from "../../model/types/Comment";
 import styles from "./CommentItem.module.scss";
-import { Avatar, Text, Skeleton, AppLink } from "shared/ui";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 
 export interface CommentItemProps {
   className?: string;

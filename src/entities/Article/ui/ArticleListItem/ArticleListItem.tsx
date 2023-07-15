@@ -1,8 +1,9 @@
+import { HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 import ViewsIcon from "shared/assets/icons/views.svg";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { AppLink, Avatar, Button, Card, Icon, Text, ThemeButton } from "shared/ui";
+import { AppLink, Avatar, Button, Card, Icon, Text, ButtonTheme } from "shared/ui";
 import {
   Article,
   ArticleBlockType,
@@ -11,7 +12,6 @@ import {
 } from "../../model/types/Article";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import styles from "./ArticleListItem.module.scss";
-import { HTMLAttributeAnchorTarget } from "react";
 
 export interface ArticleListItemProps {
   className?: string;
@@ -52,8 +52,8 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             <ArticleTextBlockComponent className={styles.textBlock} block={textBlock} />
           )}
           <div className={styles.footer}>
-            <AppLink target={target} to={`${RoutePath.articles_details}${article.id}`}>
-              <Button theme={ThemeButton.OUTLINE}>{t("read-more")}</Button>
+            <AppLink target={target} to={`${RoutePath.articles}/${article.id}`}>
+              <Button theme={ButtonTheme.OUTLINE}>{t("read-more")}</Button>
             </AppLink>
             {views}
           </div>
@@ -66,7 +66,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     <AppLink
       className={cn(styles.root, {}, [className, styles[view]])}
       target={target}
-      to={`${RoutePath.articles_details}${article.id}`}
+      to={`${RoutePath.articles}/${article.id}`}
     >
       <Card>
         <div className={styles.imageWrapper}>

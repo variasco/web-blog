@@ -4,13 +4,12 @@ import { CommentForm } from "features/addCommentForm";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { RoutePath } from "shared/config";
+import { useParams } from "react-router-dom";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
-import { Button, Text, TextSize, ThemeButton } from "shared/ui";
-import { Page } from "widgets/Page/Page";
-import { getArticleCommentsLoading } from "../../model/selectors/getArticleCommentsLoading/getArticleCommentsLoading";
+import { Text, TextSize } from "shared/ui";
+import { Page } from "widgets/Page";
+import { getArticleCommentsLoading } from "../../model/selectors/getArticleComments/getArticleCommentsLoading";
 import { getArticleRecommendationsLoading } from "../../model/selectors/getArticleRecommendations/getArticleRecommendations";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
@@ -18,6 +17,7 @@ import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByAr
 import { articleDetailsPageReducer } from "../../model/slice";
 import { getArticleComments } from "../../model/slice/ArticleDatailsCommentsSlice";
 import { getArticleRecommendations } from "../../model/slice/ArticleDetailsPageRecommendationsSlice";
+import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import styles from "./ArticleDatailsPage.module.scss";
 
 export interface ArticleDatailsPageProps {
@@ -36,7 +36,6 @@ const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
   const commentsIsLoading = useSelector(getArticleCommentsLoading);
   const recommendations = useSelector(getArticleRecommendations.selectAll);
   const recommendationsIsLoading = useSelector(getArticleRecommendationsLoading);
-  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
   const onSendComment = useCallback(
@@ -45,10 +44,6 @@ const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
     },
     [dispatch]
   );
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -62,9 +57,7 @@ const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount>
       <Page className={className}>
-        <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
-          {t("back-to-list")}
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <div className="flex-wrapper">
           <Text size={TextSize.L} className={styles.commentsTitile} title={t("we-recommend")} />
@@ -75,9 +68,11 @@ const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
             target="_blank"
           />
         </div>
-        <Text size={TextSize.L} className={styles.commentsTitile} title={t("comments")} />
-        <CommentForm onSendComment={onSendComment} />
-        <CommentList isLoading={commentsIsLoading} comments={comments} />
+        <div className="flex-wrapper">
+          <Text size={TextSize.L} title={t("comments")} />
+          <CommentForm onSendComment={onSendComment} />
+          <CommentList isLoading={commentsIsLoading} comments={comments} />
+        </div>
       </Page>
     </DynamicModuleLoader>
   );

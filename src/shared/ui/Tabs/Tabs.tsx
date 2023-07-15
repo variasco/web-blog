@@ -27,13 +27,11 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
     [onTabClick]
   );
 
-  // console.log("tabs", tabs);
-  // console.log("value", value);
-
   return (
     <div className={cn(styles.root, className)}>
       {tabs.map((tab) => (
         <Card
+          className={styles.tab}
           onClick={onClick(tab)}
           theme={tab.value === value ? CardTheme.OUTLINED : CardTheme.DEFAULT}
           key={tab.value}

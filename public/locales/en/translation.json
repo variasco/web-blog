@@ -61,5 +61,12 @@
   "economics": "ECONOMICS",
   "science": "SCIENCE",
   "articles-not-found": "Articles not found",
-  "we-recommend": "We recommend"
+  "we-recommend": "We recommend",
+  "data-not-specified": "Data is not specified",
+  "first-n-second-names-is-required": "First and second names is required",
+  "incorrect-age": "Incorrect page",
+  "incorrect-city": "Incorrect city",
+  "incorrect-country": "Incorrect country",
+  "server-error": "Server error",
+  "app-title": "Web blog"
 }

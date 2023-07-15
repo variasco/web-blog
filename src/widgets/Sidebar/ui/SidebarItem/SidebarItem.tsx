@@ -17,7 +17,7 @@ export const SidebarItem = (props: SidebarItemProps) => {
 
   const isAuth = useSelector(getUserAuthData);
 
-  if (item.authOnly && !isAuth) { 
+  if (item.authOnly && !isAuth) {
     return null;
   }
 

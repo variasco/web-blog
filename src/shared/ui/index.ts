@@ -1,7 +1,7 @@
-export { AppLink } from "./AppLink/AppLink";
+export { AppLink, AppLinkTheme } from "./AppLink/AppLink";
 export { Avatar } from "./Avatar/Avatar";
-export { Button, ButtonSize, ButtonTheme as ThemeButton } from "./Button/Button";
-export { Card } from "./Card/Card";
+export { Button, ButtonSize, ButtonTheme } from "./Button/Button";
+export { Card, CardTheme } from "./Card/Card";
 export { Code } from "./Code/Code";
 export { Icon } from "./Icon/Icon";
 export { Input } from "./Input/Input";
@@ -10,5 +10,5 @@ export { Modal } from "./Modal/Modal";
 export { Portal } from "./Portal/Portal";
 export { Select, SelectOption } from "./Select/Select";
 export { Skeleton } from "./Skeleton/Skeleton";
-export { Tabs, TabItem, TabsProps } from "./Tabs/Tabs";
-export { Text, TextAlign, TextSize, TextTheme as ThemeText } from "./Text/Text";
+export { Tabs, TabItem } from "./Tabs/Tabs";
+export { Text, TextAlign, TextSize, TextTheme } from "./Text/Text";

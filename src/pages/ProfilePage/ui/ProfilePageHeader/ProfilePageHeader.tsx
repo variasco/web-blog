@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
 import { useAppDispatch } from "shared/lib/hooks";
-import { Button, Text, ThemeButton } from "shared/ui";
+import { Button, Text, ButtonTheme } from "shared/ui";
 import styles from "./ProfilePageHeader.module.scss";
 import { getUserAuthData } from "entities/User";
 
@@ -45,19 +45,19 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
       {canEdit && (
         <div className={styles.btnWrapper}>
           {readonly ? (
-            <Button className={styles.editButton} theme={ThemeButton.OUTLINE} onClick={edit}>
+            <Button className={styles.editButton} theme={ButtonTheme.OUTLINE} onClick={edit}>
               {t("edit")}
             </Button>
           ) : (
             <>
               <Button
                 className={styles.editButton}
-                theme={ThemeButton.OUTLINE_RED}
+                theme={ButtonTheme.OUTLINE_RED}
                 onClick={cancel}
               >
                 {t("cancel")}
               </Button>
-              <Button className={styles.saveButton} theme={ThemeButton.OUTLINE} onClick={save}>
+              <Button className={styles.saveButton} theme={ButtonTheme.OUTLINE} onClick={save}>
                 {t("save")}
               </Button>
             </>
