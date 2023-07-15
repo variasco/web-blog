@@ -68,5 +68,6 @@
   "incorrect-city": "Incorrect city",
   "incorrect-country": "Incorrect country",
   "server-error": "Server error",
-  "app-title": "Web blog"
+  "app-title": "Web blog",
+  "create-article": "Create article"
 }

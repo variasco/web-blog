@@ -1,16 +1,4 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "title": "json-server",
-      "userId": "2"
-    }
-  ],
   "articles": [
     {
       "id": "1",
@@ -769,8 +757,8 @@
       "first": "Иван",
       "lastname": "Курзенёв",
       "age": 26,
-      "currency": "RUB",
-      "country": "Russia",
+      "currency": "USD",
+      "country": "Armenia",
       "city": "Санкт-Петурбург",
       "username": "admin",
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"

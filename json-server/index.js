@@ -1,4 +1,3 @@
-/* eslint-disable */
 const fs = require("fs");
 const jsonServer = require("json-server");
 const path = require("path");
@@ -9,14 +8,6 @@ const router = jsonServer.router(path.resolve(__dirname, "db.json"));
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
-
-// Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
-server.use(async (req, res, next) => {
-  await new Promise((res) => {
-    setTimeout(res, 700);
-  });
-  next();
-});
 
 // Эндпоинт для логина
 server.post("/login", (req, res) => {

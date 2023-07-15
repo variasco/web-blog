@@ -16,9 +16,9 @@ const ArticleEditPage = (props: ArticleEditPageProps) => {
   return (
     <Page className={cn(styles.root, className)}>
       {isEditing ? (
-        <Text title={`Редактирование статьи c ID = ${id}`} size={TextSize.L} />
+        <Text title={`Редактирование статьи c ID = ${id}`} text="WORK IN PROGRESS" size={TextSize.L} />
       ) : (
-        <Text title="Создание статьи" size={TextSize.L} />
+        <Text title="Создание статьи" text="WORK IN PROGRESS" size={TextSize.L} />
       )}
     </Page>
   );
