@@ -30,7 +30,7 @@ export const Sidebar = memo((props: SidebarProps) => {
   }
 
   return (
-    <menu
+    <aside
       data-testid="sidebar"
       className={cn(styles.root, { [styles.collapsed]: collapsed }, [className])}
     >
@@ -49,6 +49,6 @@ export const Sidebar = memo((props: SidebarProps) => {
       >
         {collapsed ? ">" : "<"}
       </Button>
-    </menu>
+    </aside>
   );
 });
