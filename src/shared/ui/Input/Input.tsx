@@ -1,6 +1,7 @@
 import { InputHTMLAttributes, memo, MutableRefObject, useEffect, useRef, useState } from "react";
 import { classNames as cn } from "shared/lib";
 import styles from "./Input.module.scss";
+import { HStack } from "../Stack/HStack/HStack";
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -48,8 +49,8 @@ export const Input = memo((props: InputProps) => {
   }, [autofocus]);
 
   return (
-    <div className={cn(styles.root, {}, [className])}>
-      {placeholder && <div className={styles.placeholder}>{`${placeholder} >`}</div>}
+    <HStack gap="8" className={cn(className)}>
+      {placeholder && <div>{`${placeholder} >`}</div>}
       <div className={styles.caretWrapper}>
         <input
           className={cn(styles.input, { [styles.readonly]: readonly })}
@@ -68,6 +69,6 @@ export const Input = memo((props: InputProps) => {
           <span style={{ left: `${caretPosition * 8.8}px` }} className={styles.caret} />
         )}
       </div>
-    </div>
+    </HStack>
   );
 });

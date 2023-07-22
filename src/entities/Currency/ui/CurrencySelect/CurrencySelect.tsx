@@ -30,7 +30,7 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
 
   return (
     <Select
-      className={cn("", {}, [className])}
+      className={cn(className)}
       label={t("currency")}
       options={options}
       value={value}

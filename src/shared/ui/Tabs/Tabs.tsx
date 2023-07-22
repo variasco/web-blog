@@ -2,6 +2,7 @@ import { ReactNode, useCallback } from "react";
 import { classNames as cn } from "shared/lib";
 import { Card, CardTheme } from "../Card/Card";
 import styles from "./Tabs.module.scss";
+import { HStack } from "../Stack/HStack/HStack";
 
 export interface TabItem<T extends string> {
   value: T;
@@ -28,7 +29,7 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
   );
 
   return (
-    <div className={cn(styles.root, className)}>
+    <HStack gap="8" className={cn(className)}>
       {tabs.map((tab) => (
         <Card
           className={styles.tab}
@@ -39,6 +40,6 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
           {tab.content}
         </Card>
       ))}
-    </div>
+    </HStack>
   );
 };

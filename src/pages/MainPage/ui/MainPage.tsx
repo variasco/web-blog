@@ -1,5 +1,6 @@
 import { BugButton } from "app/providers/ErrorBoundary";
 import { useTranslation } from "react-i18next";
+import { VStack } from "shared/ui";
 import { Page } from "widgets/Page";
 
 const AboutPage = () => {
@@ -7,8 +8,10 @@ const AboutPage = () => {
 
   return (
     <Page>
-      <h1>{t("main-page")}</h1>
-      <BugButton style={{ marginTop: "12px" }} />
+      <VStack gap="16" align="start">
+        <h1>{t("main-page")}</h1>
+        <BugButton />
+      </VStack>
     </Page>
   );
 };

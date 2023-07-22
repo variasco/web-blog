@@ -6,7 +6,7 @@ import ViewsIcon from "shared/assets/icons/views.svg";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch } from "shared/lib/hooks";
-import { Avatar, Icon, Skeleton, Text, TextAlign, TextSize } from "shared/ui";
+import { Avatar, HStack, Icon, Skeleton, Text, TextAlign, TextSize, VStack } from "shared/ui";
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -18,7 +18,6 @@ import { ArticleBlock, ArticleBlockType } from "../../model/types/Article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import styles from "./ArticleDetails.module.scss";
 
 export interface ArticleDetailsProps {
   className?: string;
@@ -40,11 +39,11 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
     case ArticleBlockType.TEXT:
-      return <ArticleTextBlockComponent key={block.id} className={styles.block} block={block} />;
+      return <ArticleTextBlockComponent key={block.id} block={block} />;
     case ArticleBlockType.IMAGE:
-      return <ArticleImageBlockComponent key={block.id} className={styles.block} block={block} />;
+      return <ArticleImageBlockComponent key={block.id} block={block} />;
     case ArticleBlockType.CODE:
-      return <ArticleCodeBlockComponent key={block.id} className={styles.block} block={block} />;
+      return <ArticleCodeBlockComponent key={block.id} block={block} />;
 
     default:
       return null;
@@ -61,13 +60,13 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
 
   if (loading) {
     content = (
-      <div>
-        <Skeleton className={styles.avatar} width={200} height={200} borderRadius="50%" />
-        <Skeleton className={styles.title} width="50%" height={32} />
-        <Skeleton className={styles.skeleton} width="100%" height={24} />
-        <Skeleton className={styles.skeleton} width="100%" height={200} />
-        <Skeleton className={styles.skeleton} width="100%" height={200} />
-      </div>
+      <VStack gap="8">
+        <Skeleton style={{ margin: "0 auto" }} width={200} height={200} borderRadius="50%" />
+        <Skeleton width="50%" height={32} />
+        <Skeleton width="100%" height={24} />
+        <Skeleton width="100%" height={200} />
+        <Skeleton width="100%" height={200} />
+      </VStack>
     );
   } else if (error) {
     content = (
@@ -78,32 +77,27 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     );
   } else {
     content = (
-      <>
-        <div className={styles.avatarWrapper}>
-          <Avatar className={styles.avatar} src={data?.img} size={200} />
-        </div>
-        <Text
-          className={styles.title}
-          title={data?.title}
-          text={data?.subtitle} 
-          size={TextSize.L}
-        />
-        <div className={styles.articleInfo}>
+      <VStack gap="8">
+        <HStack justify="center">
+          <Avatar src={data?.img} size={200} />
+        </HStack>
+        <Text title={data?.title} text={data?.subtitle} size={TextSize.L} />
+        <HStack gap="8" align="center">
           <Icon Svg={ViewsIcon} />
           <Text text={String(data?.views)} />
-        </div>
-        <div className={styles.articleInfo}>
+        </HStack>
+        <HStack gap="8" align="center">
           <Icon Svg={DateIcon} />
           <Text text={data?.createdAt} />
-        </div>
+        </HStack>
         {data?.blocks.map(renderBlock)}
-      </>
+      </VStack>
     );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount>
-      <div className={cn(styles.root, {}, [className])}>{content}</div>
+      <div className={cn(className)}>{content}</div>
     </DynamicModuleLoader>
   );
 };

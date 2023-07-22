@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames as cn } from "shared/lib";
 import { SortOrder } from "shared/types";
-import { Select, SelectOption } from "shared/ui";
+import { Select, SelectOption, VStack } from "shared/ui";
 import styles from "./ArticleSortSelector.module.scss";
 
 export interface ArticleSortSelectorProps {
@@ -36,7 +36,7 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
   );
 
   return (
-    <div className={cn(styles.root, className)}>
+    <VStack gap="8">
       <Select
         value={sortOrder}
         onChange={onChangeOrder}
@@ -49,6 +49,6 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
         options={sortFieldOptions}
         label={t("sort-type")}
       />
-    </div>
+    </VStack>
   );
 };

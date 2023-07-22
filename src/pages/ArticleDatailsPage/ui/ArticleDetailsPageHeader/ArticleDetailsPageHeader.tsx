@@ -6,9 +6,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { Button, ButtonTheme } from "shared/ui";
+import { Button, ButtonTheme, HStack } from "shared/ui";
 import { getCanEditArticle } from "../../model/selectors/getCanEditArticle/getCanEditArticle";
-import styles from "./ArticleDetailsPageHeader.module.scss";
 
 export interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -32,15 +31,15 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
   }, [article?.id, navigate]);
 
   return (
-    <div className={cn(styles.root, className)}>
+    <HStack align="center" justify="between" className={cn(className)}>
       <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
         {t("back-to-list")}
       </Button>
       {canEdit && (
-        <Button className={styles.editButton} theme={ButtonTheme.OUTLINE} onClick={onEditPage}>
+        <Button theme={ButtonTheme.OUTLINE} onClick={onEditPage}>
           {t("edit")}
         </Button>
       )}
-    </div>
+    </HStack>
   );
 };

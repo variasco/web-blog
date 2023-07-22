@@ -11,6 +11,7 @@ import {
 import { classNames as cn } from "shared/lib";
 import { Portal } from "../Portal/Portal";
 import styles from "./Modal.module.scss";
+import { HStack } from "../Stack/HStack/HStack";
 
 export interface ModalProps {
   children?: ReactNode;
@@ -84,11 +85,16 @@ export const Modal: FC<ModalProps> = (props) => {
           [className]
         )}
       >
-        <div onMouseDown={closeHandler} className={styles.overlay}>
+        <HStack
+          justify="center"
+          align="center"
+          onMouseDown={closeHandler}
+          className={styles.overlay}
+        >
           <div onMouseDown={contentClickHandler} className={styles.content}>
             {children}
           </div>
-        </div>
+        </HStack>
       </div>
     </Portal>
   );

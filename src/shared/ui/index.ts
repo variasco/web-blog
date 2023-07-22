@@ -10,5 +10,7 @@ export { Modal } from "./Modal/Modal";
 export { Portal } from "./Portal/Portal";
 export { Select, SelectOption } from "./Select/Select";
 export { Skeleton } from "./Skeleton/Skeleton";
-export { Tabs, TabItem } from "./Tabs/Tabs";
+export { HStack } from "./Stack/HStack/HStack";
+export { VStack } from "./Stack/VStack/VStack";
+export { TabItem, Tabs } from "./Tabs/Tabs";
 export { Text, TextAlign, TextSize, TextTheme } from "./Text/Text";

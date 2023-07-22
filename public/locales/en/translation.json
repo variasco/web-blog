@@ -69,5 +69,6 @@
   "incorrect-country": "Incorrect country",
   "server-error": "Server error",
   "app-title": "Web blog",
-  "create-article": "Create article"
+  "create-article": "Create article",
+  "text-sample": "Text sample"
 }

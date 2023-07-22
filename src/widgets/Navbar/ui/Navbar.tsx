@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { AppLink, Button, ButtonTheme, Text, TextTheme } from "shared/ui";
+import { AppLink, Button, ButtonTheme, HStack, Text, TextTheme } from "shared/ui";
 import styles from "./Navbar.module.scss";
 
 export interface NavbarProps {
@@ -32,25 +32,29 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={cn(styles.root, {}, [className])}>
-        <Text theme={TextTheme.INVERTED} title={t("app-title")} />
-        <div className={styles.links}>
-          <AppLink className={styles.newArticleButton} to={`${RoutePath.articles}/new`}>{t("create-article")}</AppLink>
-          <Button onClick={onLogout} theme={ButtonTheme.CLEAR_INVERTED}>
-            {t("sign-out")}
-          </Button>
-        </div>
+      <header className={cn(styles.root, [className])}>
+        <HStack justify="between" style={{ height: "100%" }}>
+          <Text theme={TextTheme.INVERTED} title={t("app-title")} />
+          <HStack gap="16">
+            <AppLink className={styles.newArticleButton} to={`${RoutePath.articles}/new`}>
+              {t("create-article")}
+            </AppLink>
+            <Button onClick={onLogout} theme={ButtonTheme.CLEAR_INVERTED}>
+              {t("sign-out")}
+            </Button>
+          </HStack>
+        </HStack>
       </header>
     );
   }
 
   return (
-    <header className={cn(styles.root, {}, [className])}>
-      <div className={styles.links}>
+    <header className={cn(styles.root, [className])}>
+      <HStack gap="16">
         <Button onClick={onAuthModalOpen} theme={ButtonTheme.CLEAR_INVERTED}>
           {t("sign-in")}
         </Button>
-      </div>
+      </HStack>
       {authModalOpen && <LoginModal open={authModalOpen} onClose={onAuthModalClose} />}
     </header>
   );

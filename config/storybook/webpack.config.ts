@@ -3,6 +3,7 @@ import webpack, { DefinePlugin } from "webpack";
 import { BuildPaths } from "../../config/build/types/config";
 import cssLoader from "../build/loaders/cssLoader";
 import svgLoader from "../build/loaders/svgLoader";
+import CopyPlugin from "copy-webpack-plugin";
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
@@ -10,6 +11,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     entry: "",
     html: "",
     src: path.resolve(__dirname, "..", "..", "src"),
+    buildLocals: "",
+    locales: "",
   };
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push(".ts", ".tsx");

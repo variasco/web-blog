@@ -3,23 +3,12 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.data {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .loading,
 .error {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 300px;
-}
-
-.avatarWrapper {
-  display: flex;
-  justify-content: center;
 }
 
 .editing {

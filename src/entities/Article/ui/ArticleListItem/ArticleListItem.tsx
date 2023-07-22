@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import ViewsIcon from "shared/assets/icons/views.svg";
 import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { AppLink, Avatar, Button, Card, Icon, Text, ButtonTheme } from "shared/ui";
+import { AppLink, Avatar, Button, Card, Icon, Text, ButtonTheme, HStack, VStack } from "shared/ui";
 import {
   Article,
   ArticleBlockType,
@@ -26,10 +26,10 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
   const types = <Text className={styles.types} text={article.type.join(", ")} />;
   const views = (
-    <>
-      <Text className={styles.views} text={String(article.views)} />
+    <HStack gap="8">
+      <Text text={String(article.views)} />
       <Icon Svg={ViewsIcon} />
-    </>
+    </HStack>
   );
 
   if (view === ArticleView.LIST) {
@@ -38,46 +38,50 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     ) as ArticleTextBlock;
 
     return (
-      <div className={cn(styles.root, {}, [className, styles[view]])}>
-        <Card>
-          <div className={styles.header}>
-            <Avatar size={30} src={article.user.avatar} />
-            <Text className={styles.username} text={article.user.username} />
-            <Text className={styles.createdAt} text={article.createdAt} />
-          </div>
-          <Text className={styles.title} title={article.title} />
+      <Card className={cn(className)}>
+        <VStack gap="4" className={styles[view]}>
+          <HStack justify="between">
+            <HStack gap="8">
+              <Avatar size={30} src={article.user.avatar} />
+              <Text text={article.user.username} />
+            </HStack>
+            <Text text={article.createdAt} />
+          </HStack>
+          <Text title={article.title} />
           {types}
           <img className={styles.img} src={article.img} alt={article.title} />
           {textBlock && (
             <ArticleTextBlockComponent className={styles.textBlock} block={textBlock} />
           )}
-          <div className={styles.footer}>
+          <HStack justify="between">
             <AppLink target={target} to={`${RoutePath.articles}/${article.id}`}>
               <Button theme={ButtonTheme.OUTLINE}>{t("read-more")}</Button>
             </AppLink>
             {views}
-          </div>
-        </Card>
-      </div>
+          </HStack>
+        </VStack>
+      </Card>
     );
   }
 
   return (
     <AppLink
-      className={cn(styles.root, {}, [className, styles[view]])}
+      className={cn(className, styles[view])}
       target={target}
       to={`${RoutePath.articles}/${article.id}`}
     >
       <Card>
-        <div className={styles.imageWrapper}>
-          <img className={styles.image} src={article.img} alt={article.title} />
-          <Text className={styles.date} text={article.createdAt} />
-        </div>
-        <div className={styles.infoWrapper}>
-          {types}
-          {views}
-        </div>
-        <Text className={styles.title} text={article.title} />
+        <VStack gap="8">
+          <div className={styles.imageWrapper}>
+            <img className={styles.image} src={article.img} alt={article.title} />
+            <Text className={styles.date} text={article.createdAt} />
+          </div>
+          <HStack gap="8" justify="between">
+            {types}
+            {views}
+          </HStack>
+          <Text text={article.title} />
+        </VStack>
       </Card>
     </AppLink>
   );

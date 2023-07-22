@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { classNames as cn } from "shared/lib";
-import { Loader } from "shared/ui";
+import { HStack, Loader } from "shared/ui";
 import styles from "./PageLoader.module.scss";
 
 export interface PageLoaderProps {
@@ -11,8 +11,8 @@ export const PageLoader: FC<PageLoaderProps> = (props) => {
   const { className } = props;
 
   return (
-    <div className={cn(styles.pageLoader, {}, [className])}>
+    <HStack align="center" justify="center" className={cn(styles.pageLoader, {}, [className])}>
       <Loader />
-    </div>
+    </HStack>
   );
 };

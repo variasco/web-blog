@@ -4,14 +4,13 @@ import {
   profileActions,
   updateProfileData,
 } from "entities/Profile";
+import { getUserAuthData } from "entities/User";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
 import { useAppDispatch } from "shared/lib/hooks";
-import { Button, Text, ButtonTheme } from "shared/ui";
-import styles from "./ProfilePageHeader.module.scss";
-import { getUserAuthData } from "entities/User";
+import { Button, ButtonTheme, HStack, Text } from "shared/ui";
 
 export interface ProfilePageHeaderProps {
   className?: string;
@@ -40,30 +39,26 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   }, [dispatch]);
 
   return (
-    <div className={cn(styles.root, {}, [className])}>
+    <HStack align="center" justify="between" className={cn(className)}>
       <Text title={t("profile-page")} />
       {canEdit && (
-        <div className={styles.btnWrapper}>
+        <>
           {readonly ? (
-            <Button className={styles.editButton} theme={ButtonTheme.OUTLINE} onClick={edit}>
+            <Button theme={ButtonTheme.OUTLINE} onClick={edit}>
               {t("edit")}
             </Button>
           ) : (
-            <>
-              <Button
-                className={styles.editButton}
-                theme={ButtonTheme.OUTLINE_RED}
-                onClick={cancel}
-              >
+            <HStack gap="16">
+              <Button theme={ButtonTheme.OUTLINE_RED} onClick={cancel}>
                 {t("cancel")}
               </Button>
-              <Button className={styles.saveButton} theme={ButtonTheme.OUTLINE} onClick={save}>
+              <Button theme={ButtonTheme.OUTLINE} onClick={save}>
                 {t("save")}
               </Button>
-            </>
+            </HStack>
           )}
-        </div>
+        </>
       )}
-    </div>
+    </HStack>
   );
 };

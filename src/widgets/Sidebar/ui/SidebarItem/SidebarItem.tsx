@@ -2,7 +2,7 @@ import { getUserAuthData } from "entities/User";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
-import { AppLink } from "shared/ui";
+import { AppLink, HStack } from "shared/ui";
 import { SidebarItemType } from "../../model/types/Sidebar";
 import styles from "./SidebarItem.module.scss";
 
@@ -23,8 +23,10 @@ export const SidebarItem = (props: SidebarItemProps) => {
 
   return (
     <AppLink className={cn(styles.menuLink, { [styles.collapsed]: collapsed })} to={item.path}>
-      <item.Icon className={styles.icon} />
-      <span className={styles.text}>{t(item.text)}</span>
+      <HStack align="center" gap="8">
+        <item.Icon className={styles.icon} />
+        <span className={styles.text}>{t(item.text)}</span>
+      </HStack>
     </AppLink>
   );
 };

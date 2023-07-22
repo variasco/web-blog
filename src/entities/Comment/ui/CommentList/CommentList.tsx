@@ -1,8 +1,6 @@
-import { Comment } from "../../model/types/Comment";
-import { classNames as cn } from "shared/lib";
-import styles from "./CommentList.module.scss";
 import { useTranslation } from "react-i18next";
-import { Text } from "shared/ui";
+import { Text, VStack } from "shared/ui";
+import { Comment } from "../../model/types/Comment";
 import { CommentItem } from "../CommentItem/CommentItem";
 
 export interface CommentListProps {
@@ -17,16 +15,16 @@ export const CommentList = (props: CommentListProps) => {
 
   if (isLoading) {
     return (
-      <div className={cn(styles.root, {}, [className])}>
+      <VStack gap="4" className={className}>
         <CommentItem isLoading />
         <CommentItem isLoading />
         <CommentItem isLoading />
-      </div>
+      </VStack>
     );
   }
 
   return (
-    <div className={cn(styles.root, {}, [className])}>
+    <VStack gap="4" className={className}>
       {comments?.length ? (
         comments.map((comment) => (
           <CommentItem isLoading={isLoading} key={comment.id} comment={comment} />
@@ -34,6 +32,6 @@ export const CommentList = (props: CommentListProps) => {
       ) : (
         <Text text={t("no-comments")} />
       )}
-    </div>
+    </VStack>
   );
 };

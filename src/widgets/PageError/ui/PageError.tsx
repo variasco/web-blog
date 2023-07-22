@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames as cn } from "shared/lib";
-import { Button } from "shared/ui";
+import { Button, VStack } from "shared/ui";
 import styles from "./PageError.module.scss";
 
 export const PageError: FC = () => {
@@ -12,9 +12,11 @@ export const PageError: FC = () => {
   }
 
   return (
-    <div className={cn(styles.root, {}, [])}>
+    <VStack align="center" justify="center" gap="16" className={cn(styles.root, {}, [])}>
       <h3 className={styles.message}>{t("something-went-wrong")}</h3>
-      <Button style={{padding: "10px"}} onClick={reloadPage}>{t("reload-page")}</Button>
-    </div>
+      <Button onClick={reloadPage}>
+        {t("reload-page")}
+      </Button>
+    </VStack>
   );
 };

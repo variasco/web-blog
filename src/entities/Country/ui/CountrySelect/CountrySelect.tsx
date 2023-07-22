@@ -32,7 +32,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
 
   return (
     <Select
-      className={cn("", {}, [className])}
+      className={cn(className)}
       label={t("country")}
       options={options}
       value={value}

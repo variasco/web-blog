@@ -1,13 +1,14 @@
 import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
 import { ArticleSortSelector } from "features/ArticleSortSelector";
+import { ArticleTypeTabs } from "features/ArticleTypeTabs";
 import { ArticleViewSwitcher } from "features/ArticleViewSwitcher";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
 import { useAppDispatch, useDebounce } from "shared/lib/hooks";
 import { SortOrder } from "shared/types";
-import { Card, Input, TabItem, Tabs } from "shared/ui";
+import { Card, HStack, Input, TabItem, VStack } from "shared/ui";
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -17,8 +18,6 @@ import {
 } from "../../model/selectors/articlesPageSelectors";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { articlesPageActions } from "../../model/slice/ArticlesPageSlice";
-import styles from "./ArticlesPageFilters.module.scss";
-import { ArticleTypeTabs } from "features/ArticleTypeTabs";
 
 export interface ArticlesPageFiltersProps {
   className?: string;
@@ -84,8 +83,8 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
   );
 
   return (
-    <div className={cn(styles.root, {}, [className])}>
-      <div className={styles.buttons}>
+    <VStack gap="16" className={cn(className)}>
+      <HStack justify="between">
         <ArticleSortSelector
           sortOrder={sortOrder}
           onChangeOrder={onChangeOrder}
@@ -93,11 +92,11 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
           onChangeSortType={onChangeSortType}
         />
         <ArticleViewSwitcher view={view} onViewClick={onChangeView} />
-      </div>
+      </HStack>
       <Card>
         <Input value={search} onChange={onChangeSearch} placeholder={t("search")} />
       </Card>
       <ArticleTypeTabs value={type} onTabClick={onChangeType} />
-    </div>
+    </VStack>
   );
 };

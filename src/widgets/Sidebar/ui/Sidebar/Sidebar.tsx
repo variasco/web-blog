@@ -34,9 +34,7 @@ export const Sidebar = memo((props: SidebarProps) => {
       data-testid="sidebar"
       className={cn(styles.root, { [styles.collapsed]: collapsed }, [className])}
     >
-      <div className={styles.menu}>
-        {sidebarItems}
-      </div>
+      <div className={styles.menu}>{sidebarItems}</div>
       <div className={styles.switchers}>
         <LanguageSwitcher short={collapsed} className={styles.langSwitcher} />
         <ThemeSwitcher className={styles.themeSwitcher} />

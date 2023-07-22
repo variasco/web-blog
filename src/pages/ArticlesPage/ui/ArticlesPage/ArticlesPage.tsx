@@ -1,9 +1,11 @@
 import { ArticleList, ArticleView } from "entities/Article";
 import { memo, useCallback } from "react";
 import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
+import { VStack } from "shared/ui";
 import { Page } from "widgets/Page";
 import {
   getArticlesPageLoading,
@@ -13,8 +15,6 @@ import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPag
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { articlesPageReducer, getArticles } from "../../model/slice/ArticlesPageSlice";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
-import styles from "./ArticlesPage.module.scss";
-import { useSearchParams } from "react-router-dom";
 
 export interface ArticlesPageProps {
   className?: string;
@@ -42,9 +42,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount={false}>
-      <Page className={cn(styles.root, {}, [className])} onScrollEnd={onLoadNextPart}>
-        <ArticlesPageFilters />
-        <ArticleList isLoading={isLoading} view={view} articles={articles} />
+      <Page className={cn(className)} onScrollEnd={onLoadNextPart}>
+        <VStack gap="32">
+          <ArticlesPageFilters />
+          <ArticleList isLoading={isLoading} view={view} articles={articles} />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

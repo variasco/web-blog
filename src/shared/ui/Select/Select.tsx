@@ -1,6 +1,7 @@
 import { ChangeEvent, SelectHTMLAttributes, useMemo } from "react";
 import { classNames as cn } from "shared/lib";
 import styles from "./Select.module.scss";
+import { HStack } from "../Stack/HStack/HStack";
 
 export interface SelectOption<T extends string> {
   value: T;
@@ -36,7 +37,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <HStack gap="8">
       {label && <span className={styles.label}>{`${label} >`}</span>}
       <select
         disabled={readonly}
@@ -46,6 +47,6 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
       >
         {optionsList}
       </select>
-    </div>
+    </HStack>
   );
 };

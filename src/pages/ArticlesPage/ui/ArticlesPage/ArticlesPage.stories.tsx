@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import ArticlesPage from "./ArticlesPage";
+import { StoreDecorator } from "shared/config";
 
 export default {
   title: "pages/ArticlesPage",
@@ -13,3 +14,4 @@ const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {.
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [StoreDecorator({ articlesPage: {} })];

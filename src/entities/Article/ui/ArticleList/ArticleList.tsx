@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames as cn } from "shared/lib";
-import { Text } from "shared/ui";
+import { HStack, Text } from "shared/ui";
 import { Article, ArticleView } from "../../model/types/Article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
@@ -31,16 +31,16 @@ export const ArticleList = (props: ArticleListProps) => {
 
   if (!isLoading && !articles.length) {
     return (
-      <div className={cn(styles.root, {}, [className, styles[view]])}>
+      <HStack className={cn(className, styles[view])}>
         <Text title={t("articles-not-found")} />
-      </div>
+      </HStack>
     );
   }
 
   return (
-    <div className={cn(styles.root, {}, [className, styles[view]])}>
+    <HStack gap="16" className={cn(className, styles[view])}>
       {articles.length ? articles.map(renederArticle) : null}
       {isLoading && getSkeletons(view)}
-    </div>
+    </HStack>
   );
 };
