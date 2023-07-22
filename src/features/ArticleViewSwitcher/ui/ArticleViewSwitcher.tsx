@@ -3,7 +3,7 @@ import styles from "./ArticleViewSwitcher.module.scss";
 import { ArticleView } from "entities/Article";
 import TilesIcon from "shared/assets/icons/tiles.svg";
 import ListIcon from "shared/assets/icons/list.svg";
-import { Button, Icon, ButtonTheme, HStack } from "shared/ui";
+import { Button, Icon, HStack } from "shared/ui";
 
 export interface ArticleViewSwitcherProps {
   className?: string;
@@ -30,7 +30,7 @@ export const ArticleViewSwitcher = (props: ArticleViewSwitcherProps) => {
   return (
     <HStack gap="8" className={cn(className)}>
       {viewTypes.map((item) => (
-        <Button theme={ButtonTheme.CLEAR} key={item.view} onClick={onClick(item.view)}>
+        <Button theme="clear" key={item.view} onClick={onClick(item.view)}>
           <Icon className={cn("", { [styles.notSelected]: item.view !== view })} Svg={item.icon} />
         </Button>
       ))}

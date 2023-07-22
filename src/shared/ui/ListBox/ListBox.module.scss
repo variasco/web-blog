@@ -1,0 +1,49 @@
+.root {
+  position: relative;
+}
+
+.button {
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.options {
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+  position: absolute;
+  z-index: 10000;
+  border-radius: 0 0 8px 8px;
+  min-width: fit-content;
+  width: 100%;
+}
+
+.option {
+  text-wrap: nowrap;
+  padding: 4px 8px;
+}
+
+.optionActive {
+  background-color: var(--card-bg);
+  color: var(--primary-color);
+}
+
+.optionSelected {
+  background-color: var(--card-bg);
+  color: var(--primary-color);
+}
+
+.optionDisabled {
+  opacity: 0.6;
+}
+
+.readonly {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.top {
+  bottom: 100%;
+  border-radius: 8px 8px 0 0;
+}

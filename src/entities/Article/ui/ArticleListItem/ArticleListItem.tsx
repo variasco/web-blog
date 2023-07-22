@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import ViewsIcon from "shared/assets/icons/views.svg";
 import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { AppLink, Avatar, Button, Card, Icon, Text, ButtonTheme, HStack, VStack } from "shared/ui";
+import { AppLink, Avatar, Button, Card, HStack, Icon, Text, VStack } from "shared/ui";
 import {
   Article,
   ArticleBlockType,
@@ -55,7 +55,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
           )}
           <HStack justify="between">
             <AppLink target={target} to={`${RoutePath.articles}/${article.id}`}>
-              <Button theme={ButtonTheme.OUTLINE}>{t("read-more")}</Button>
+              <Button theme="outline">{t("read-more")}</Button>
             </AppLink>
             {views}
           </HStack>

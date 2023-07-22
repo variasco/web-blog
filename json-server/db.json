@@ -763,8 +763,14 @@
       "first": "Иван",
       "lastname": "Курзенёв",
       "age": 26,
-      "currency": "USD",
-      "country": "Armenia",
+      "currency": {
+        "value": "USD",
+        "content": "USD"
+      },
+      "country": {
+        "value": "Kazahstan",
+        "content": "Kazahstan"
+      },
       "city": "Санкт-Петурбург",
       "username": "admin",
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"

@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { AppLink, Button, ButtonTheme, HStack, Text, TextTheme } from "shared/ui";
+import { AppLink, Button, HStack, Text, TextTheme } from "shared/ui";
 import styles from "./Navbar.module.scss";
 
 export interface NavbarProps {
@@ -39,7 +39,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <AppLink className={styles.newArticleButton} to={`${RoutePath.articles}/new`}>
               {t("create-article")}
             </AppLink>
-            <Button onClick={onLogout} theme={ButtonTheme.CLEAR_INVERTED}>
+            <Button onClick={onLogout} theme="clearInverted">
               {t("sign-out")}
             </Button>
           </HStack>
@@ -51,7 +51,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   return (
     <header className={cn(styles.root, [className])}>
       <HStack gap="16">
-        <Button onClick={onAuthModalOpen} theme={ButtonTheme.CLEAR_INVERTED}>
+        <Button onClick={onAuthModalOpen} theme="clearInverted">
           {t("sign-in")}
         </Button>
       </HStack>

@@ -70,5 +70,8 @@
   "server-error": "Server error",
   "app-title": "Web blog",
   "create-article": "Create article",
-  "text-sample": "Text sample"
+  "text-sample": "Text sample",
+  "choose-value": "Choose a value",
+  "specify-the-currency": "Specify the currency",
+  "specify-the-country": "Specify the country"
 }

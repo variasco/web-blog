@@ -3,7 +3,7 @@ import { ThemeSwitcher } from "features/ThemeSwitcher";
 import { memo, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
-import { Button, ButtonSize, ButtonTheme } from "shared/ui";
+import { Button } from "shared/ui";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems/getSidebarItems";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import styles from "./Sidebar.module.scss";
@@ -43,9 +43,9 @@ export const Sidebar = memo((props: SidebarProps) => {
         data-testid="sidebar-toggle"
         onClick={onToggle}
         className={styles.collapseButton}
-        theme={ButtonTheme.BACKGROUND_INVERTED}
+        theme="backgroundInverted"
         square
-        size={ButtonSize.L}
+        size="size-l"
       >
         {collapsed ? ">" : "<"}
       </Button>

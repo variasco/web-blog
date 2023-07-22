@@ -70,5 +70,8 @@
   "we-recommend": "Рекомендуем",
   "app-title": "Вэб блог",
   "create-article": "Создать статью",
-  "text-sample": "Пример текста"
+  "text-sample": "Пример текста",
+  "choose-value": "Выберите значение",
+  "specify-the-currency": "Укажите валюту",
+  "specify-the-country": "Укажите страну"
 }

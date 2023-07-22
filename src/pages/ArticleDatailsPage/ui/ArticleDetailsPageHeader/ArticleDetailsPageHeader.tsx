@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { Button, ButtonTheme, HStack } from "shared/ui";
+import { Button, HStack } from "shared/ui";
 import { getCanEditArticle } from "../../model/selectors/getCanEditArticle/getCanEditArticle";
 
 export interface ArticleDetailsPageHeaderProps {
@@ -32,11 +32,11 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
 
   return (
     <HStack align="center" justify="between" className={cn(className)}>
-      <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+      <Button theme="outline" onClick={onBackToList}>
         {t("back-to-list")}
       </Button>
       {canEdit && (
-        <Button theme={ButtonTheme.OUTLINE} onClick={onEditPage}>
+        <Button theme="outline" onClick={onEditPage}>
           {t("edit")}
         </Button>
       )}
