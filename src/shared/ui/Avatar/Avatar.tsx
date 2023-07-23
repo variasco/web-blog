@@ -2,7 +2,8 @@ import { CSSProperties, memo, useMemo } from "react";
 import { classNames as cn } from "shared/lib";
 import styles from "./Avatar.module.scss";
 
-export interface AvatarProps {
+export interface AvatarProps
+  extends React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
   className?: string;
   src?: string;
   size?: number;
@@ -10,8 +11,8 @@ export interface AvatarProps {
 }
 
 export const Avatar = memo((props: AvatarProps) => {
-  const { className, src, size, alt = "" } = props;
-  const style = useMemo<CSSProperties>(
+  const { className, src, size, alt = "", style, ...otherProps } = props;
+  const customStyle = useMemo<CSSProperties>(
     () => ({
       width: size,
       height: size,
@@ -19,5 +20,13 @@ export const Avatar = memo((props: AvatarProps) => {
     [size]
   );
 
-  return <img className={cn(styles.root, {}, [className])} src={src} alt={alt} style={style} />;
+  return (
+    <img
+      {...otherProps}
+      className={cn(styles.root, {}, [className])}
+      src={src}
+      alt={alt}
+      style={{ ...customStyle, ...style }}
+    />
+  );
 });

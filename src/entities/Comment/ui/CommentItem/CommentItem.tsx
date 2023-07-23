@@ -1,6 +1,6 @@
 import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { AppLink, AppLinkTheme, Avatar, HStack, Skeleton, Text, VStack } from "shared/ui";
+import { AppLink, Avatar, HStack, Skeleton, Text, VStack } from "shared/ui";
 import { Comment } from "../../model/types/Comment";
 import styles from "./CommentItem.module.scss";
 
@@ -31,7 +31,7 @@ export const CommentItem = (props: CommentItemProps) => {
 
   return (
     <div className={cn(styles.root, {}, [className])}>
-      <AppLink theme={AppLinkTheme.INVERTED} to={`${RoutePath.profile}${comment.user.id}`}>
+      <AppLink theme="inverted" to={`${RoutePath.profile}${comment.user.id}`}>
         <HStack align="center" gap="16">
           {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
           <Text title={comment.user.username} />

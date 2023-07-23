@@ -14,7 +14,7 @@
   }
 }
 
-.options {
+.menuList {
   background-color: var(--card-bg);
   color: var(--primary-color);
   position: absolute;
@@ -23,28 +23,25 @@
   width: 100%;
 }
 
-.option {
+.menuItemButton {
   text-wrap: nowrap;
   padding: 4px 8px;
+  color: inherit !important;
+  background: none;
+  margin: 0;
+  border: none;
+  display: block;
+  width: 100%;
+  text-align: left;
 }
 
-.optionActive {
+.menuItemActive {
   background-color: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
 }
 
-.optionSelected {
-  background-color: var(--inverted-bg-color);
-  color: var(--inverted-primary-color);
-}
-
-.optionDisabled {
+.menuItemDisabled {
   opacity: 0.6;
-}
-
-.readonly {
-  cursor: default;
-  opacity: 0.7;
 }
 
 .topRight {

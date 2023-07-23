@@ -39,7 +39,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
       selected={value}
       onChange={onChangeHandler}
       readonly={readonly}
-      direction="top"
+      direction="top right"
     />
   );
 };

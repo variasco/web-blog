@@ -764,12 +764,12 @@
       "lastname": "Курзенёв",
       "age": 26,
       "currency": {
-        "value": "USD",
-        "content": "USD"
+        "value": "RUB",
+        "content": "RUB"
       },
       "country": {
-        "value": "Kazahstan",
-        "content": "Kazahstan"
+        "value": "Russia",
+        "content": "Russia"
       },
       "city": "Санкт-Петурбург",
       "username": "admin",

@@ -5,8 +5,9 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { AppLink, Button, HStack, Text, TextTheme } from "shared/ui";
+import { AppLink, Avatar, Button, Dropdown, HStack, Text, TextTheme } from "shared/ui";
 import styles from "./Navbar.module.scss";
+import { DropdownOption } from "shared/types";
 
 export interface NavbarProps {
   className?: string;
@@ -31,6 +32,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   }, [dispatch]);
 
   if (authData) {
+    const options: DropdownOption[] = [
+      { content: t("profile"), value: "1", href: `${RoutePath.profile}/${authData.id}` },
+      { content: t("sign-out"), value: "2", onClick: onLogout },
+    ];
+
     return (
       <header className={cn(styles.root, [className])}>
         <HStack justify="between" style={{ height: "100%" }}>
@@ -39,9 +45,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <AppLink className={styles.newArticleButton} to={`${RoutePath.articles}/new`}>
               {t("create-article")}
             </AppLink>
-            <Button onClick={onLogout} theme="clearInverted">
-              {t("sign-out")}
-            </Button>
+            <Dropdown
+              direction="bottom left"
+              element={
+                <Avatar style={{ display: "block" }} src={authData.avatar} size={30} alt="avatar" />
+              }
+              options={options}
+            />
           </HStack>
         </HStack>
       </header>

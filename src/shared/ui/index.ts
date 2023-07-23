@@ -1,5 +1,5 @@
 export { Listbox } from "./ListBox/ListBox";
-export { AppLink, AppLinkTheme } from "./AppLink/AppLink";
+export { AppLink } from "./AppLink/AppLink";
 export { Avatar } from "./Avatar/Avatar";
 export { Button } from "./Button/Button";
 export { Card, CardTheme } from "./Card/Card";
@@ -15,3 +15,4 @@ export { HStack } from "./Stack/HStack/HStack";
 export { VStack } from "./Stack/VStack/VStack";
 export { TabItem, Tabs } from "./Tabs/Tabs";
 export { Text, TextAlign, TextSize, TextTheme } from "./Text/Text";
+export { Dropdown } from "./Dropdown/Dropdown";
