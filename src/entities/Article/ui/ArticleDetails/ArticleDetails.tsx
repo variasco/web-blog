@@ -6,7 +6,7 @@ import ViewsIcon from "shared/assets/icons/views.svg";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch } from "shared/lib/hooks";
-import { Avatar, HStack, Icon, Skeleton, Text, TextAlign, TextSize, VStack } from "shared/ui";
+import { Avatar, HStack, Icon, Skeleton, Text, VStack } from "shared/ui";
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -71,7 +71,7 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
   } else if (error) {
     content = (
       <Text
-        align={TextAlign.CENTER}
+        align={"center"}
         title={t("an-error-occurred-while-loading-the-article")}
       ></Text>
     );
@@ -81,7 +81,7 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
         <HStack justify="center">
           <Avatar src={data?.img} size={200} />
         </HStack>
-        <Text title={data?.title} text={data?.subtitle} size={TextSize.L} />
+        <Text title={data?.title} text={data?.subtitle} size={"size_l"} />
         <HStack gap="8" align="center">
           <Icon Svg={ViewsIcon} />
           <Text text={String(data?.views)} />

@@ -7,8 +7,8 @@ import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import styles from "./ArticleList.module.scss";
 
-export interface ArticleListProps {
-  className?: string;
+export interface ArticleListProps
+  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
@@ -22,7 +22,14 @@ const getSkeletons = (view: ArticleView) => {
 };
 
 export const ArticleList = (props: ArticleListProps) => {
-  const { className, articles, target, isLoading = false, view = ArticleView.TILES } = props;
+  const {
+    className,
+    articles,
+    target,
+    isLoading = false,
+    view = ArticleView.TILES,
+    ...otherProps
+  } = props;
   const { t } = useTranslation();
 
   const renederArticle = (article: Article) => {
@@ -38,7 +45,7 @@ export const ArticleList = (props: ArticleListProps) => {
   }
 
   return (
-    <HStack gap="16" className={cn(className, styles[view])}>
+    <HStack {...otherProps} gap="16" className={cn(className, styles[view])}>
       {articles.length ? articles.map(renederArticle) : null}
       {isLoading && getSkeletons(view)}
     </HStack>

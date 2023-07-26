@@ -2,25 +2,18 @@ import { memo } from "react";
 import { classNames as cn } from "shared/lib";
 import styles from "./Text.module.scss";
 
-export enum TextTheme {
-  PRIMARY = "primary",
-  INVERTED = "inverted",
-  ERROR = "error",
-}
+type TextTheme = "primary" | "inverted" | "error";
+type TextAlign = "left" | "center" | "right";
+type TextSize = "size_s" | "size_m" | "size_l";
+type HeaderTagType = "h2" | "h3" | "h4";
 
-export enum TextAlign {
-  LEFT = "align-left",
-  CENTER = "align-center",
-  RIGHT = "align-right",
-}
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+  ["size_s"]: "h2",
+  ["size_m"]: "h3",
+  ["size_l"]: "h4",
+};
 
-export enum TextSize {
-  S = "size_s",
-  M = "size_m",
-  L = "size_l",
-}
-
-export interface TextProps {
+interface TextProps {
   className?: string;
   title?: string;
   text?: string;
@@ -29,22 +22,14 @@ export interface TextProps {
   size?: TextSize;
 }
 
-type HeaderTagType = "h2" | "h3" | "h4";
-
-const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-  [TextSize.L]: "h2",
-  [TextSize.M]: "h3",
-  [TextSize.S]: "h4",
-};
-
 export const Text = memo((props: TextProps) => {
   const {
     className,
     title,
     text,
-    theme = TextTheme.PRIMARY,
-    align = TextAlign.LEFT,
-    size = TextSize.M,
+    theme = "primary",
+    align = "align-left",
+    size = "size_m",
   } = props;
 
   const HeaderTag = mapSizeToHeaderTag[size];

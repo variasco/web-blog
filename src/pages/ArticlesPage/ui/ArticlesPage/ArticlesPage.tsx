@@ -1,19 +1,12 @@
-import { ArticleList, ArticleView } from "entities/Article";
 import { memo, useCallback } from "react";
-import { useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
-import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
+import { useAppDispatch } from "shared/lib/hooks";
 import { VStack } from "shared/ui";
 import { Page } from "widgets/Page";
-import {
-  getArticlesPageLoading,
-  getArticlesPageView,
-} from "../../model/selectors/articlesPageSelectors";
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
-import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
-import { articlesPageReducer, getArticles } from "../../model/slice/ArticlesPageSlice";
+import { articlesPageReducer } from "../../model/slice/ArticlesPageSlice";
+import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 
 export interface ArticlesPageProps {
@@ -23,29 +16,21 @@ export interface ArticlesPageProps {
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageLoading);
-  const view = useSelector(getArticlesPageView) || ArticleView.TILES;
-  const [searchParams] = useSearchParams();
-
-  const reducers: ReducersList = {
-    articlesPage: articlesPageReducer,
-  };
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
-  useInitialEffect(() => {
-    dispatch(initArticlesPage(searchParams));
-  });
+  const reducers: ReducersList = {
+    articlesPage: articlesPageReducer,
+  };
 
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount={false}>
       <Page className={cn(className)} onScrollEnd={onLoadNextPart}>
         <VStack gap="32">
           <ArticlesPageFilters />
-          <ArticleList isLoading={isLoading} view={view} articles={articles} />
+          <ArticleInfiniteList />
         </VStack>
       </Page>
     </DynamicModuleLoader>

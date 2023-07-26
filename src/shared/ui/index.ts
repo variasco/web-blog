@@ -14,5 +14,5 @@ export { Skeleton } from "./Skeleton/Skeleton";
 export { HStack } from "./Stack/HStack/HStack";
 export { VStack } from "./Stack/VStack/VStack";
 export { TabItem, Tabs } from "./Tabs/Tabs";
-export { Text, TextAlign, TextSize, TextTheme } from "./Text/Text";
+export { Text } from "./Text/Text";
 export { Dropdown } from "./Dropdown/Dropdown";

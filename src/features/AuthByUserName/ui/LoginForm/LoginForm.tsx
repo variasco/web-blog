@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch } from "shared/lib/hooks";
-import { Button, Input, Text, TextTheme, VStack } from "shared/ui";
+import { Button, Input, Text, VStack } from "shared/ui";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
 import { getLoginLoading } from "../../model/selectors/getLoginLoading/getLoginLoading";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
@@ -77,7 +77,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
             placeholder={t("enter-password")}
             type="text"
           />
-          {error && <Text text={error} theme={TextTheme.ERROR} />}
+          {error && <Text text={error} theme={"error"} />}
           <Button
             type="submit"
             disabled={isLoading}

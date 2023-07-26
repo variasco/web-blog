@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { classNames as cn } from "shared/lib";
-import { Text, TextSize } from "shared/ui";
+import { Text } from "shared/ui";
 import { Page } from "widgets/Page";
 import styles from "./ArticleEditPage.module.scss";
 
@@ -16,9 +16,9 @@ const ArticleEditPage = (props: ArticleEditPageProps) => {
   return (
     <Page className={cn(styles.root, className)}>
       {isEditing ? (
-        <Text title={`Редактирование статьи c ID = ${id}`} text="WORK IN PROGRESS" size={TextSize.L} />
+        <Text title={`Редактирование статьи c ID = ${id}`} text="WORK IN PROGRESS" size={"size_l"} />
       ) : (
-        <Text title="Создание статьи" text="WORK IN PROGRESS" size={TextSize.L} />
+        <Text title="Создание статьи" text="WORK IN PROGRESS" size={"size_l"} />
       )}
     </Page>
   );

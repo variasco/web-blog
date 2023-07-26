@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { RoutePath } from "shared/config";
 import { classNames as cn } from "shared/lib";
-import { AppLink, Avatar, Button, Dropdown, HStack, Text, TextTheme } from "shared/ui";
+import { AppLink, Avatar, Button, Dropdown, HStack, Text } from "shared/ui";
 import styles from "./Navbar.module.scss";
 import { DropdownOption } from "shared/types";
 
@@ -40,7 +40,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     return (
       <header className={cn(styles.root, [className])}>
         <HStack justify="between" style={{ height: "100%" }}>
-          <Text theme={TextTheme.INVERTED} title={t("app-title")} />
+          <Text theme={"inverted"} title={t("app-title")} />
           <HStack gap="16">
             <AppLink className={styles.newArticleButton} to={`${RoutePath.articles}/new`}>
               {t("create-article")}
