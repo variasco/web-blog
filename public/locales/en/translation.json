@@ -74,5 +74,8 @@
   "text-sample": "Text sample",
   "choose-value": "Choose a value",
   "specify-the-currency": "Specify the currency",
-  "specify-the-country": "Specify the country"
+  "specify-the-country": "Specify the country",
+  "admin-panel-page": "Admin panel page",
+  "admin-panel": "Admin panel",
+  "no-permission": "No permission to access this page"
 }

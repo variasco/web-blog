@@ -10,5 +10,5 @@ export function RequireAuth({ children }: { children: JSX.Element }) {
   if (!auth) {
     return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
   }
-  return children; 
+  return children;
 }
