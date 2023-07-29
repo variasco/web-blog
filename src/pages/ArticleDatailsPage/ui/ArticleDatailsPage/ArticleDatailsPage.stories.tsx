@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Article, ArticleBlockType, ArticleType } from "entities/Article/model/types/Article";
-import { StoreDecorator } from "shared/config/storybook/decorators";
+import { StoreDecorator } from "shared/config";
 import ArticleDatailsPage from "./ArticleDatailsPage";
 
 const data: Article = {
@@ -29,6 +29,7 @@ const data: Article = {
     {
       id: "4",
       type: ArticleBlockType.CODE,
+      // "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;"
       code: "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;",
     },
     {
@@ -46,7 +47,7 @@ const data: Article = {
 };
 
 export default {
-  title: "pages/ArticleDatailsPage",
+  title: "pages/Article/ArticleDatailsPage",
   component: ArticleDatailsPage,
   argTypes: {
     backgroundColor: { control: "color" },

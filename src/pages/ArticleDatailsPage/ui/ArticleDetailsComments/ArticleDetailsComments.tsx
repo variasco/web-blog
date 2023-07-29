@@ -1,11 +1,11 @@
 import { CommentList } from "entities/Comment";
 import { CommentForm } from "features/addCommentForm";
-import { useCallback } from "react";
+import { Suspense, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames as cn } from "shared/lib";
 import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
-import { Text, VStack } from "shared/ui";
+import { Loader, Text, VStack } from "shared/ui";
 import { getArticleCommentsLoading } from "../../model/selectors/getArticleComments/getArticleCommentsLoading";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
@@ -13,7 +13,7 @@ import { getArticleComments } from "../../model/slice/ArticleDatailsCommentsSlic
 
 export interface ArticleDetailsCommentsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
@@ -38,7 +38,9 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
   return (
     <VStack gap="8" className={cn(className)}>
       <Text size="size_l" title={t("comments")} />
-      <CommentForm onSendComment={onSendComment} />
+      <Suspense fallback={<Loader />}>
+        <CommentForm onSendComment={onSendComment} />
+      </Suspense>
       <CommentList isLoading={commentsIsLoading} comments={comments} />
     </VStack>
   );

@@ -1,6 +1,7 @@
 .tiles {
   width: 230px;
   transition: transform 0.2s, opacity 0.2s;
+  display: inline-block;
 
   .imageWrapper {
     width: 200px;
@@ -32,6 +33,8 @@
   }
 
   .types {
+    overflow: hidden;
+
     p {
       white-space: nowrap;
       overflow: hidden;

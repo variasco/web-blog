@@ -1,5 +1,12 @@
 import { getScrollPositionByPath, scrollSaveActions } from "features/ScrollSave";
-import { DetailedHTMLProps, HTMLAttributes, MutableRefObject, UIEvent, useRef } from "react";
+import {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  MutableRefObject,
+  ReactNode,
+  UIEvent,
+  useRef,
+} from "react";
 import { useLocation } from "react-router-dom";
 import { classNames as cn } from "shared/lib";
 import { useAppDispatch, useInfiniteScroll, useInitialEffect, useThrottle } from "shared/lib/hooks";
@@ -9,6 +16,7 @@ import { StateSchema } from "app/providers/StoreProvider";
 
 export interface PageProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   onScrollEnd?: () => void;
+  children?: ReactNode;
 }
 
 export const Page = (props: PageProps) => {

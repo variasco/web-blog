@@ -21,7 +21,7 @@ import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleT
 
 export interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 export const ArticleDetails = (props: ArticleDetailsProps) => {

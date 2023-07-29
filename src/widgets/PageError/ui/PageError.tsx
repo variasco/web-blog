@@ -14,9 +14,7 @@ export const PageError: FC = () => {
   return (
     <VStack align="center" justify="center" gap="16" className={cn(styles.root, {}, [])}>
       <h3 className={styles.message}>{t("something-went-wrong")}</h3>
-      <Button onClick={reloadPage}>
-        {t("reload-page")}
-      </Button>
+      <Button onClick={reloadPage}>{t("reload-page")}</Button>
     </VStack>
   );
 };

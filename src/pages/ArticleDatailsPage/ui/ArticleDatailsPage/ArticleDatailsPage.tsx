@@ -23,10 +23,6 @@ const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return <Page className={className}>{t("article-not-found")}</Page>;
-  }
-
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount>
       <Page className={className}>

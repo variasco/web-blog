@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { ArticleList } from "./ArticleList";
 import { Article, ArticleView } from "../../model/types/Article";
+import { ArticleList } from "./ArticleList";
 
 export default {
   title: "entities/Article/ArticleList",
@@ -97,7 +97,7 @@ PrimaryList.args = {
 };
 
 export const isLoadingTiles = Template.bind({});
-isLoadingTiles.args = { isLoading: true, view: ArticleView.TILES };
+isLoadingTiles.args = { isLoading: true, view: ArticleView.TILES, articles: [] };
 
 export const isLoadingList = Template.bind({});
-isLoadingList.args = { isLoading: true, view: ArticleView.LIST };
+isLoadingList.args = { isLoading: true, view: ArticleView.LIST, articles: [] };

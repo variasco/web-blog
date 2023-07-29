@@ -21,7 +21,7 @@ const reducers: ReducersList = {
 };
 
 interface EditableProfileCardProps {
-  id: string;
+  id?: string;
 }
 
 export const EditableProfileCard = (props: EditableProfileCardProps) => {

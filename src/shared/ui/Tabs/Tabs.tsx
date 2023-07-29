@@ -1,8 +1,8 @@
 import { ReactNode, useCallback } from "react";
 import { classNames as cn } from "shared/lib";
 import { Card, CardTheme } from "../Card/Card";
-import styles from "./Tabs.module.scss";
 import { HStack } from "../Stack/HStack/HStack";
+import styles from "./Tabs.module.scss";
 
 export interface TabItem<T extends string> {
   value: T;
@@ -20,7 +20,7 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
   const { className, value, tabs, onTabClick } = props;
 
   const onClick = useCallback(
-    (tabItem) => {
+    (tabItem: TabItem<T>) => {
       return () => {
         onTabClick?.(tabItem);
       };

@@ -24,7 +24,9 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation();
 
-  const types = <Text className={styles.types} text={article.type.join(", ")} />;
+  const types = (
+    <Text className={styles.types} text={article.type.join(", ")} />
+  );
   const views = (
     <HStack gap="8">
       <Text text={String(article.views)} />

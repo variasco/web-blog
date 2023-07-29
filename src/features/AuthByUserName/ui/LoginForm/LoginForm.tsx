@@ -32,14 +32,14 @@ const LoginForm: FC<LoginFormProps> = (props) => {
   const isLoading = useSelector(getLoginLoading);
 
   const onChangeUsername = useCallback(
-    (value) => {
+    (value: string) => {
       dispatch(loginActions.setUsername(value));
     },
     [dispatch]
   );
 
   const onChangePassword = useCallback(
-    (value) => {
+    (value: string) => {
       dispatch(loginActions.setPassword(value));
     },
     [dispatch]
