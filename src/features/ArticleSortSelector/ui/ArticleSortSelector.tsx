@@ -1,10 +1,8 @@
 import { ArticleSortField } from "entities/Article";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames as cn } from "shared/lib";
 import { SortOrder } from "shared/types";
 import { Select, SelectOption, VStack } from "shared/ui";
-import styles from "./ArticleSortSelector.module.scss";
 
 export interface ArticleSortSelectorProps {
   className?: string;
@@ -15,7 +13,7 @@ export interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
-  const { className, sortOrder, sortType, onChangeOrder, onChangeSortType } = props;
+  const { sortOrder, sortType, onChangeOrder, onChangeSortType } = props;
   const { t } = useTranslation();
 
   const orderOptions = useMemo<SelectOption<SortOrder>[]>(

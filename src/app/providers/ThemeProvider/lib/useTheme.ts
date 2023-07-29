@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext";
+import { ThemeContext, Theme } from "./ThemeContext";
+import { LOCAL_STORAGE_THEME_KEY } from "./consts";
 
 export interface useThemeResult {
   theme: Theme;
@@ -13,20 +14,20 @@ export function useTheme(): useThemeResult {
     let newTheme: Theme;
 
     switch (theme) {
-    case Theme.LIGHT:
-      newTheme = Theme.DARK;
+    case "app-light-theme":
+      newTheme = "app-light-theme";
       break;
 
-    case Theme.DARK:
-      newTheme = Theme.ORANGE;
+    case "app-dark-theme":
+      newTheme = "app-dark-theme";
       break;
 
-    case Theme.ORANGE:
-      newTheme = Theme.LIGHT;
+    case "app-orange-theme":
+      newTheme = "app-orange-theme";
       break;
 
     default:
-      newTheme = Theme.LIGHT;
+      newTheme = "app-light-theme";
       break;
     }
 
@@ -39,7 +40,7 @@ export function useTheme(): useThemeResult {
   }, [theme]);
 
   return {
-    theme: theme || Theme.LIGHT,
+    theme: theme || "app-light-theme",
     toggleTheme,
   };
 }

@@ -2,16 +2,6 @@ import { ButtonHTMLAttributes, memo, ReactNode } from "react";
 import { classNames as cn } from "shared/lib";
 import styles from "./Button.module.scss";
 
-// export enum ButtonTheme {
-//   PRIMARY = "primary",
-//   CLEAR = "clear",
-//   CLEAR_INVERTED = "clearInverted",
-//   OUTLINE = "outline",
-//   OUTLINE_RED = "outline_red",
-//   BACKGROUND = "background",
-//   BACKGROUND_INVERTED = "backgroundInverted",
-// }
-
 type ButtonTheme =
   | "primary"
   | "clear"
@@ -20,12 +10,6 @@ type ButtonTheme =
   | "outline_red"
   | "background"
   | "backgroundInverted";
-
-// export enum ButtonSize {
-//   M = "size-m",
-//   L = "size-l",
-//   XL = "size-xl",
-// }
 
 type ButtonSize = "size-m" | "size-l" | "size-xl";
 

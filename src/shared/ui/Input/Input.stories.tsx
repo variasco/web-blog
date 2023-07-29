@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config";
 import { Input } from "./Input";
 
@@ -17,13 +16,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   placeholder: "Label",
   value: "Text Sample",
-  autofocus: true
+  autofocus: true,
 };
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   placeholder: "Label",
   value: "Text Sample",
-  autofocus: true
+  autofocus: true,
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [ThemeDecorator("app-dark-theme")];

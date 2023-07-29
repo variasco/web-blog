@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 import { StoreDecorator, ThemeDecorator } from "shared/config";
@@ -13,7 +12,7 @@ export default {
   },
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const Light = Template.bind({});
 Light.args = {};
@@ -51,5 +50,5 @@ Dark.decorators = [
       },
     },
   }),
-  ThemeDecorator(Theme.DARK),
+  ThemeDecorator("app-dark-theme"),
 ];

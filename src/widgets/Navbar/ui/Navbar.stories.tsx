@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { StoreDecorator, ThemeDecorator } from "shared/config";
 import { Navbar } from "./Navbar";
 
@@ -19,15 +18,20 @@ Light.decorators = [StoreDecorator({ user: { authData: undefined } })];
 
 export const LightLoggedIn = Template.bind({});
 LightLoggedIn.args = {};
-LightLoggedIn.decorators = [StoreDecorator({ user: { authData: { id: "1", username: "JohnDoe" } } })];
+LightLoggedIn.decorators = [
+  StoreDecorator({ user: { authData: { id: "1", username: "JohnDoe" } } }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: undefined } })];
+Dark.decorators = [
+  ThemeDecorator("app-dark-theme"),
+  StoreDecorator({ user: { authData: undefined } }),
+];
 
 export const DarkLoggedIn = Template.bind({});
 DarkLoggedIn.args = {};
 DarkLoggedIn.decorators = [
-  ThemeDecorator(Theme.DARK),
+  ThemeDecorator("app-dark-theme"),
   StoreDecorator({ user: { authData: { id: "1", username: "JohnDoe" } } }),
 ];

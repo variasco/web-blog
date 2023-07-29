@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config";
 import { Code } from "./Code";
 
@@ -40,4 +39,4 @@ PrimaryDark.args = {
   </body>
 </html>;`,
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [ThemeDecorator("app-dark-theme")];

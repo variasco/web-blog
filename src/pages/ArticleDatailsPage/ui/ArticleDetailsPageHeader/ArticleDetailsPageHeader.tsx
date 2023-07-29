@@ -1,5 +1,4 @@
 import { getArticleDetailsData } from "entities/Article";
-import { getUserAuthData } from "entities/User";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -18,7 +17,6 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const userData = useSelector(getUserAuthData);
   const article = useSelector(getArticleDetailsData);
   const canEdit = useSelector(getCanEditArticle);
 

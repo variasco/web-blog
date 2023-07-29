@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Article, ArticleBlockType, ArticleType } from "entities/Article/model/types/Article";
+import { Article } from "entities/Article/model/types/Article";
+import { ArticleBlockType, ArticleType } from "entities/Article/model/consts/consts";
 import { StoreDecorator } from "shared/config";
 import ArticleDatailsPage from "./ArticleDatailsPage";
 

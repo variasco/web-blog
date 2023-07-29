@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
-import { I18NextDecorator, StoreDecorator, ThemeDecorator } from "shared/config";
+import { StoreDecorator, ThemeDecorator } from "shared/config";
 import MainPage from "./MainPage";
 
 export default {
@@ -19,4 +18,4 @@ Light.args = {};
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator("app-dark-theme")];

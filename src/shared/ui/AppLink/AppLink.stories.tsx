@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config";
 import { AppLink } from "./AppLink";
 
@@ -37,18 +36,18 @@ PrimaryDark.args = {
   children: "Text",
   theme: "primary",
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [ThemeDecorator("app-dark-theme")];
 
 export const RedDark = Template.bind({});
 RedDark.args = {
   children: "Text",
   theme: "red",
 };
-RedDark.decorators = [ThemeDecorator(Theme.DARK)];
+RedDark.decorators = [ThemeDecorator("app-dark-theme")];
 
 export const InvertedDark = Template.bind({});
 InvertedDark.args = {
   children: "Text",
   theme: "inverted",
 };
-InvertedDark.decorators = [ThemeDecorator(Theme.DARK)];
+InvertedDark.decorators = [ThemeDecorator("app-dark-theme")];

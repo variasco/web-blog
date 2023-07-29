@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config";
 import { Modal } from "./Modal";
 
@@ -26,4 +25,4 @@ PrimaryDark.args = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam esse quia quo recusandae, earum tenetur molestias sit, distinctio, in optio quod! Magni omnis inventore amet praesentium eos incidunt eum nisi sapiente iste architecto? Similique autem magni nihil? Facilis tempore minus suscipit fugit ipsam laborum, non consectetur aliquid necessitatibus ut porro!",
   open: true,
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [ThemeDecorator("app-dark-theme")];

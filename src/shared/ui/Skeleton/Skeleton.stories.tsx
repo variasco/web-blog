@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config";
 import { Skeleton } from "./Skeleton";
 
@@ -31,7 +30,7 @@ RectangleDark.args = {
   width: "80%",
   height: 200,
 };
-RectangleDark.decorators = [ThemeDecorator(Theme.DARK)];
+RectangleDark.decorators = [ThemeDecorator("app-dark-theme")];
 
 export const CircleDark = Template.bind({});
 CircleDark.args = {
@@ -39,4 +38,4 @@ CircleDark.args = {
   width: 100,
   height: 100,
 };
-CircleDark.decorators = [ThemeDecorator(Theme.DARK)];
+CircleDark.decorators = [ThemeDecorator("app-dark-theme")];

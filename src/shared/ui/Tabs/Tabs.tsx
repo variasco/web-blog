@@ -1,6 +1,6 @@
 import { ReactNode, useCallback } from "react";
 import { classNames as cn } from "shared/lib";
-import { Card, CardTheme } from "../Card/Card";
+import { Card } from "../Card/Card";
 import { HStack } from "../Stack/HStack/HStack";
 import styles from "./Tabs.module.scss";
 
@@ -34,7 +34,7 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
         <Card
           className={styles.tab}
           onClick={onClick(tab)}
-          theme={tab.value === value ? CardTheme.OUTLINED : CardTheme.DEFAULT}
+          theme={tab.value === value ? "outlined" : "default"}
           key={tab.value}
         >
           {tab.content}

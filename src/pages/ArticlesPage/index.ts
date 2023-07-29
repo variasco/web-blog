@@ -16,5 +16,5 @@ export {
   articlesPageReducer,
   getArticles,
 } from "./model/slice/ArticlesPageSlice";
-export { ArticlesPageSchema } from "./model/types/ArticlesPageSchema";
+export type { ArticlesPageSchema } from "./model/types/ArticlesPageSchema";
 export { ArticlesPageAsync as ArticlesPage } from "./ui/ArticlesPage/ArticlesPage.async";

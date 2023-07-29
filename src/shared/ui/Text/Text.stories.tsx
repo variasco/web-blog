@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config";
 import { Text } from "./Text";
 
@@ -48,16 +47,16 @@ PrimaryDark.args = {
   title: "Title for title",
   text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, architecto?",
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [ThemeDecorator("app-dark-theme")];
 
 export const OnlyTitleDark = Template.bind({});
 OnlyTitleDark.args = {
   title: "Title for title",
 };
-OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTitleDark.decorators = [ThemeDecorator("app-dark-theme")];
 
 export const OnlyTextDark = Template.bind({});
 OnlyTextDark.args = {
   text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, architecto?",
 };
-OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTextDark.decorators = [ThemeDecorator("app-dark-theme")];

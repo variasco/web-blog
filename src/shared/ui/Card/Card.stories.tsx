@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Card, CardTheme } from "./Card";
 import { Text } from "../Text/Text";
+import { Card } from "./Card";
 
 export default {
   title: "shared/Card",
@@ -20,5 +20,5 @@ Primary.args = {
 export const Outlined = Template.bind({});
 Outlined.args = {
   children: <Text title="Title" text="Text Sample" />,
-  theme: CardTheme.OUTLINED,
+  theme: "outlined",
 };

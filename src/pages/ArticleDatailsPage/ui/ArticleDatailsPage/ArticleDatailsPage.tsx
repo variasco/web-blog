@@ -1,7 +1,6 @@
 import { ArticleDetails } from "entities/Article";
 import { ArticleRecommendationList } from "features/ArticleRecommendationList";
 import { memo } from "react";
-import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { VStack } from "shared/ui";
@@ -20,7 +19,6 @@ const reducers: ReducersList = {
 
 const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
   const { className } = props;
-  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
   return (

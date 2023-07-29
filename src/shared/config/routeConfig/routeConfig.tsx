@@ -4,29 +4,17 @@ import { AdminPanelPage } from "pages/AdminPanelPage";
 import { ArticleDatailsPage } from "pages/ArticleDatailsPage";
 import { ArticleEditPage } from "pages/ArticleEditPage";
 import { ArticlesPage } from "pages/ArticlesPage";
-import { ForbiddenPage } from "pages/ForbiddenPage/ui/ForbiddenPage";
+import { ForbiddenPage } from "pages/ForbiddenPage";
 import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { ProfilePage } from "pages/ProfilePage";
 import { RouteProps } from "react-router-dom";
+import { AppRoutes } from "./AppRoutesConst";
 
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
   roles?: UserRole[];
 };
-
-export enum AppRoutes {
-  MAIN = "main",
-  ABOUT = "about",
-  PROFILE = "profile",
-  ARTICLES = "articles",
-  ARTICLES_DETAILS = "articles_details",
-  ARTICLES_CREATE = "articles_create",
-  ARTICLES_EDIT = "articles_edit",
-  ADMIN_PANEL = "admin_panel",
-  NOT_FOUND = "not_found",
-  FORBIDDEN = "forbidden",
-}
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",

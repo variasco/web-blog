@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config";
 import { Button } from "./Button";
 
@@ -41,7 +40,7 @@ ClearDark.args = {
   children: "Text",
   theme: "clear",
 };
-ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
+ClearDark.decorators = [ThemeDecorator("app-dark-theme")];
 
 export const ClearInverted = Template.bind({});
 ClearInverted.args = {
@@ -54,7 +53,7 @@ ClearInvertedDark.args = {
   children: "Text",
   theme: "clearInverted",
 };
-ClearInvertedDark.decorators = [ThemeDecorator(Theme.DARK)];
+ClearInvertedDark.decorators = [ThemeDecorator("app-dark-theme")];
 
 export const Outline = Template.bind({});
 Outline.args = {
@@ -73,7 +72,7 @@ OutlineDark.args = {
   children: "Text",
   theme: "outline",
 };
-OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+OutlineDark.decorators = [ThemeDecorator("app-dark-theme")];
 
 export const Background = Template.bind({});
 Background.args = {

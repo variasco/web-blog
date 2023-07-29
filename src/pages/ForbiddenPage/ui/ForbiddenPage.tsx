@@ -3,11 +3,11 @@ import { classNames as cn } from "shared/lib";
 import { Page } from "widgets/Page";
 import styles from "./ForbiddenPage.module.scss";
 
-export interface ForbiddenPageProps {
+interface ForbiddenPageProps {
   className?: string;
 }
 
-export const ForbiddenPage = (props: ForbiddenPageProps) => {
+const ForbiddenPage = (props: ForbiddenPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
 
@@ -17,3 +17,5 @@ export const ForbiddenPage = (props: ForbiddenPageProps) => {
     </Page>
   );
 };
+
+export default ForbiddenPage;

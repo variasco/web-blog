@@ -2,10 +2,11 @@ import { HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames as cn } from "shared/lib";
 import { HStack, Text } from "shared/ui";
-import { Article, ArticleView } from "../../model/types/Article";
+import { Article } from "../../model/types/Article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import styles from "./ArticleList.module.scss";
+import { ArticleView } from "../../model/consts/consts";
 
 export interface ArticleListProps
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

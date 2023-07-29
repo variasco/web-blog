@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
 import { StoreDecorator, ThemeDecorator } from "shared/config";
 import { Sidebar } from "./Sidebar";
 
@@ -19,7 +18,7 @@ Light.decorators = [StoreDecorator({ user: { authData: {} } })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: {} } })];
+Dark.decorators = [ThemeDecorator("app-dark-theme"), StoreDecorator({ user: { authData: {} } })];
 
 export const NoAuth = Template.bind({});
 NoAuth.args = {};

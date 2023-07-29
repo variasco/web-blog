@@ -7,6 +7,7 @@ import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
 import { useAppDispatch } from "shared/lib/hooks";
 import { Avatar, HStack, Icon, Skeleton, Text, VStack } from "shared/ui";
+import { ArticleBlockType } from "../../model/consts/consts";
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -14,7 +15,7 @@ import {
 } from "../../model/selectots/articleDetails";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import { articleDetailsReducer } from "../../model/slice/ArticleDetailsSlice";
-import { ArticleBlock, ArticleBlockType } from "../../model/types/Article";
+import { ArticleBlock } from "../../model/types/Article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
@@ -70,10 +71,7 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     );
   } else if (error) {
     content = (
-      <Text
-        align={"center"}
-        title={t("an-error-occurred-while-loading-the-article")}
-      ></Text>
+      <Text align={"center"} title={t("an-error-occurred-while-loading-the-article")}></Text>
     );
   } else {
     content = (
