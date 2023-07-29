@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { ThemeDecorator } from "shared/config";
+import { ThemeDecorator } from "shared/config/storybook";
 import { Button } from "./Button";
 
 export default {

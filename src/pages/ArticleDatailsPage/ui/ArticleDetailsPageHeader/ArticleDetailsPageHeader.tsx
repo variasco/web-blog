@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "shared/config";
+import { RoutePath } from "shared/config/routeConfig/AppRoutesConst";
 import { classNames as cn } from "shared/lib";
 import { Button, HStack } from "shared/ui";
 import { getCanEditArticle } from "../../model/selectors/getCanEditArticle/getCanEditArticle";

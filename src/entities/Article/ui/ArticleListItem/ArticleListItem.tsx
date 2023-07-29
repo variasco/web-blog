@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 import ViewsIcon from "shared/assets/icons/views.svg";
-import { RoutePath } from "shared/config";
+import { RoutePath } from "shared/config/routeConfig/AppRoutesConst";
 import { classNames as cn } from "shared/lib";
 import { AppLink, Avatar, Button, Card, HStack, Icon, Text, VStack } from "shared/ui";
 import { ArticleBlockType, ArticleView } from "../../model/consts/consts";

@@ -1,7 +1,7 @@
 import { getUserAuthData } from "entities/User";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { RoutePath } from "shared/config";
+import { RoutePath } from "shared/config/routeConfig/AppRoutesConst";
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
   const auth = useSelector(getUserAuthData);

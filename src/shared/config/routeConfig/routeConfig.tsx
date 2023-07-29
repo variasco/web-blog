@@ -9,24 +9,11 @@ import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { ProfilePage } from "pages/ProfilePage";
 import { RouteProps } from "react-router-dom";
-import { AppRoutes } from "./AppRoutesConst";
+import { AppRoutes, RoutePath } from "./AppRoutesConst";
 
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
   roles?: UserRole[];
-};
-
-export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: "/",
-  [AppRoutes.ABOUT]: "/about",
-  [AppRoutes.PROFILE]: "/profile",
-  [AppRoutes.ARTICLES]: "/articles",
-  [AppRoutes.ARTICLES_DETAILS]: "/articles",
-  [AppRoutes.ARTICLES_CREATE]: "/articles",
-  [AppRoutes.ARTICLES_EDIT]: "/articles",
-  [AppRoutes.ADMIN_PANEL]: "/admin",
-  [AppRoutes.FORBIDDEN]: "/forbidden",
-  [AppRoutes.NOT_FOUND]: "*",
 };
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {

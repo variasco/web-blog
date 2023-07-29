@@ -1,9 +1,9 @@
 import { ArticleDetails } from "entities/Article";
 import { ArticleRecommendationList } from "features/ArticleRecommendationList";
-import { memo } from "react";
+import { Suspense, memo } from "react";
 import { useParams } from "react-router-dom";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
-import { VStack } from "shared/ui";
+import { Loader, VStack } from "shared/ui";
 import { Page } from "widgets/Page";
 import { articleDetailsPageReducer } from "../../model/slice";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
@@ -26,7 +26,9 @@ const ArticleDatailsPage = (props: ArticleDatailsPageProps) => {
       <Page className={className}>
         <VStack gap="16">
           <ArticleDetailsPageHeader />
-          <ArticleDetails id={id} />
+          <Suspense fallback={<Loader />}>
+            <ArticleDetails id={id} />
+          </Suspense>
           <ArticleRecommendationList />
           <ArticleDetailsComments id={id} />
         </VStack>

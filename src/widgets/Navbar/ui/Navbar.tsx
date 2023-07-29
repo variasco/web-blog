@@ -3,7 +3,7 @@ import { LoginModal } from "features/AuthByUserName";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { RoutePath } from "shared/config";
+import { RoutePath } from "shared/config/routeConfig/AppRoutesConst";
 import { classNames as cn } from "shared/lib";
 import { DropdownOption } from "shared/types";
 import { AppLink, Avatar, Button, Dropdown, HStack, Text } from "shared/ui";

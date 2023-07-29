@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { StoreDecorator, ThemeDecorator } from "shared/config";
+import { StoreDecorator, ThemeDecorator } from "shared/config/storybook";
 import { Navbar } from "./Navbar";
 
 export default {

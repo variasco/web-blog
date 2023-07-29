@@ -1,4 +1,4 @@
-import { RoutePath } from "shared/config";
+import { RoutePath } from "shared/config/routeConfig/AppRoutesConst";
 import { classNames as cn } from "shared/lib";
 import { AppLink, Avatar, HStack, Skeleton, Text, VStack } from "shared/ui";
 import { Comment } from "../../model/types/Comment";

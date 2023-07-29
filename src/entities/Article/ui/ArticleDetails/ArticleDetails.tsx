@@ -5,7 +5,7 @@ import DateIcon from "shared/assets/icons/date.svg";
 import ViewsIcon from "shared/assets/icons/views.svg";
 import { classNames as cn } from "shared/lib";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components";
-import { useAppDispatch } from "shared/lib/hooks";
+import { useAppDispatch, useInitialEffect } from "shared/lib/hooks";
 import { Avatar, HStack, Icon, Skeleton, Text, VStack } from "shared/ui";
 import { ArticleBlockType } from "../../model/consts/consts";
 import {
@@ -33,6 +33,8 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
   const loading = useSelector(getArticleDetailsLoading);
   const error = useSelector(getArticleDetailsError);
 
+  console.log("id", id);
+
   const reducers: ReducersList = {
     articleDetails: articleDetailsReducer,
   };
@@ -51,11 +53,7 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     }
   }, []);
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => dispatch(fetchArticleById(id)));
 
   let content;
 
